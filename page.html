@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>翻页测试</title>
+    <script src="utils/jquery-3.2.1.min.js"></script>
+    <style>
+        html,
+        body {
+            height: 100%;
+            margin: 0;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: rgb(240, 240, 240);
+        }
+
+        li {
+            list-style: none;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        .pageContent {
+            width: 980px;
+            height: 460px;
+            background: #fff;
+            position: relative;
+        }
+
+        .pageContent ul {
+            padding: 0;
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            width: 100%;
+            height: 100%;
+        }
+
+        .pageContent li {
+            width: 200px;
+            height: 200px;
+            border: 1px solid #ddd;
+        }
+
+        .left,.right {
+            position: absolute;
+            top: 45%;
+            display: inline-block;
+            width: 20px;
+            height: 32px;
+            font-size: 20px;
+        }
+
+        .left {
+            left: 0;
+        }
+
+        .right {
+            right: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="pageContent">
+        <ul class="slides">
+        </ul>
+        <div class="arr">
+            <a href="javascript:void(0);" class="left" ><</a>
+            <a href="javascript:void(0);" class="right">></a>
+        </div>
+    </div>
+    <script>
+        $('document').ready(function () {
+            var mObj = [
+                {
+                    productName: '111',
+                    productContent: 'aaa'
+                },
+                {
+                    productName: '222',
+                    productContent: 'bbb'
+                },
+                {
+                    productName: '333',
+                    productContent: 'ccc'
+                },
+                {
+                    productName: '444',
+                    productContent: 'ddd'
+                },
+                {
+                    productName: '555',
+                    productContent: 'eee'
+                },
+                {
+                    productName: '666',
+                    productContent: 'fff'
+                },
+                {
+                    productName: '777',
+                    productContent: 'ggg'
+                },
+                {
+                    productName: '888',
+                    productContent: 'hhh'
+                },
+                {
+                    productName: '999',
+                    productContent: 'iii'
+                },
+                {
+                    productName: '100',
+                    productContent: 'jjj'
+                },
+                {
+                    productName: '101',
+                    productContent: 'kkk'
+                },
+                {
+                    productName: '102',
+                    productContent: 'lll'
+                }
+            ]
+            var mNum = 8
+            var mIdx = 1
+            function checkArr(){
+                console.log(mObj.length)
+                if(mObj.length > 8){
+                    console.log(parseInt(mObj.length/8))
+                    if(mObj.length%8 > 0){
+                        mIdx = mObj.length/8+1
+                    }
+                    else{
+                        mIdx = mObj.length/8
+                    }
+                }
+                if(mIdx <= 1){
+                    $('.arr').hide()
+                }
+                else{
+                    $('.arr').show()
+                }
+            }
+            checkArr()
+            function addLi(num,idx) {
+                $('.slides').fadeOut(200)
+                $('.slides').html('')
+                var first = (idx-1)*8
+                for (var i = 1; i <= num; i++) {
+                    $('.slides').append('<li>' + (first+i) + '</li>')
+                }
+                $('.slides').fadeIn()
+            }
+            addLi(mNum,mIdx)
+            $('.left').click(function(){
+                mIdx = mIdx-1
+                console.log(mIdx)                
+                addLi(8,mIdx)
+            })
+            $('.right').click(function(){
+                mIdx = mIdx+1
+                console.log(mIdx)
+                addLi(5,mIdx)
+            })
+            
+        })
+    </script>
+
+</body>
+
+</html>
