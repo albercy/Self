@@ -49,21 +49,22 @@
             border: 1px solid #ddd;
         }
 
-        .left,.right {
+        .left,
+        .right {
             position: absolute;
             top: 45%;
-            display: inline-block;
+            display: none;
             width: 20px;
             height: 32px;
             font-size: 20px;
         }
 
         .left {
-            left: 0;
+            left: 5px;
         }
 
         .right {
-            right: 0;
+            right: 5px;
         }
     </style>
 </head>
@@ -73,104 +74,63 @@
         <ul class="slides">
         </ul>
         <div class="arr">
-            <a href="javascript:void(0);" class="left" ><</a>
+            <a href="javascript:void(0);" class="left"><</a>
             <a href="javascript:void(0);" class="right">></a>
         </div>
     </div>
     <script>
         $('document').ready(function () {
-            var mObj = [
-                {
-                    productName: '111',
-                    productContent: 'aaa'
-                },
-                {
-                    productName: '222',
-                    productContent: 'bbb'
-                },
-                {
-                    productName: '333',
-                    productContent: 'ccc'
-                },
-                {
-                    productName: '444',
-                    productContent: 'ddd'
-                },
-                {
-                    productName: '555',
-                    productContent: 'eee'
-                },
-                {
-                    productName: '666',
-                    productContent: 'fff'
-                },
-                {
-                    productName: '777',
-                    productContent: 'ggg'
-                },
-                {
-                    productName: '888',
-                    productContent: 'hhh'
-                },
-                {
-                    productName: '999',
-                    productContent: 'iii'
-                },
-                {
-                    productName: '100',
-                    productContent: 'jjj'
-                },
-                {
-                    productName: '101',
-                    productContent: 'kkk'
-                },
-                {
-                    productName: '102',
-                    productContent: 'lll'
+            var mObj = new Array()
+            for(var j=0; j<17; j++){
+                mObj.push(j)
+            }
+            //console.log(mObj.length)
+
+            var pageNumber = mObj.length
+            var pageIndex = 1
+            var pageCount = Math.ceil(pageNumber / 8)
+
+            function controlArr(idx){
+                $('.left').hide()
+                $('.right').hide()
+                if(idx == 1 && pageNumber>8){
+                    $('.right').show()
                 }
-            ]
-            var mNum = 8
-            var mIdx = 1
-            function checkArr(){
-                console.log(mObj.length)
-                if(mObj.length > 8){
-                    console.log(parseInt(mObj.length/8))
-                    if(mObj.length%8 > 0){
-                        mIdx = mObj.length/8+1
-                    }
-                    else{
-                        mIdx = mObj.length/8
-                    }
+                else if(idx == pageCount && pageNumber>8){
+                    $('.left').show()
                 }
-                if(mIdx <= 1){
-                    $('.arr').hide()
-                }
-                else{
-                    $('.arr').show()
+                else if(idx>1 && idx<pageCount){
+                    $('.left').show()
+                    $('.right').show()
                 }
             }
-            checkArr()
-            function addLi(num,idx) {
+            controlArr(pageIndex)
+
+            function addLi(idx) {
+                var first = (idx - 1) * 8
+                var num = pageNumber - first > 8 ? 8 : pageNumber - first
                 $('.slides').fadeOut(200)
                 $('.slides').html('')
-                var first = (idx-1)*8
+                controlArr(idx)
+
                 for (var i = 1; i <= num; i++) {
-                    $('.slides').append('<li>' + (first+i) + '</li>')
+                    $('.slides').append('<li>' + (first + i) + '</li>')
                 }
                 $('.slides').fadeIn()
             }
-            addLi(mNum,mIdx)
-            $('.left').click(function(){
-                mIdx = mIdx-1
-                console.log(mIdx)                
-                addLi(8,mIdx)
+            addLi(pageIndex)
+
+            $('.left').click(function () {
+                pageIndex = pageIndex - 1
+                console.log(pageIndex)                
+                addLi(pageIndex)
             })
-            $('.right').click(function(){
-                mIdx = mIdx+1
-                console.log(mIdx)
-                addLi(5,mIdx)
+            $('.right').click(function () {
+                pageIndex = pageIndex + 1
+                console.log(pageIndex)
+                addLi(pageIndex)
             })
-            
+
         })
     </script>
 
