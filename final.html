@@ -57,6 +57,7 @@
 		}
 
 		.cartContent {
+            position: relative;
 			text-align: center;
 			margin-top: 5px;
 			width: 100%;
@@ -127,6 +128,24 @@
 			background: #f99;
 			border-radius: 29px;
 		}
+
+        .left,.right {
+            position: absolute;
+            top: 45%;
+            display: none;
+            width: 25px;
+            height: 70px;
+        }
+
+        .left {
+            left: 5px;
+            background: #ccc url('image/arrow-left.png') -4px 20px no-repeat;
+        }
+
+        .right {
+            right: 5px;
+            background: #ccc url('image/arrow-right.png') -2px 20px no-repeat;
+        }
 	</style>
 </head>
 
@@ -140,22 +159,29 @@
 			</ul>
 		</div>
 		<div class="cartContent">
-			<ul>
+			<ul class="slides">
 				<li>
-					<a href="#"><img src="image/photo.jpg" alt=""></a>
+					<img src="image/photo.jpg" alt="">
 					<p>￥10.00</p>
 					<a href="">999 感冒灵颗粒 10g*9袋 华润三九医药股份有限公司 三九</a>
 					<div class="shopcart">
 						<i class="cart-icon"></i>
 						<span>加入购物车　</span>
 					</div>
-
 				</li>
-			</ul>
+            </ul>
+            <div class="arr">
+                <a href="javascript:void(0);" class="left"></a>
+                <a href="javascript:void(0);" class="right"></a>
+            </div>
 		</div>
 	</div>
 	<script>
 		$('document').ready(function () {
+            var pageNumber = mObj.length
+            var pageIndex = 1
+            var pageCount = Math.ceil(pageNumber / 8)
+
 			$('.shopcart').hover(function () {
 				$('.cart-icon').css('background-color', '#f33')
 				$('.cart-icon').stop().animate({ right: '75px' })
@@ -170,6 +196,48 @@
 					$(this).addClass('active').siblings().removeClass('active')
 				})
 			})
+
+            function controlArr(idx){
+                $('.left').hide()
+                $('.right').hide()
+                if(idx == 1 && pageNumber>8){
+                    $('.right').show()
+                }
+                else if(idx == pageCount && pageNumber>8){
+                    $('.left').show()
+                }
+                else if(idx>1 && idx<pageCount){
+                    $('.left').show()
+                    $('.right').show()
+                }
+            }
+            controlArr(pageIndex)
+
+            function addLi(idx) {
+                var first = (idx - 1) * 8
+                var num = pageNumber - first > 8 ? 8 : pageNumber - first
+                $('.slides').fadeOut(200)
+                $('.slides').html('')
+                controlArr(idx)
+
+                for (var i = 1; i <= num; i++) {
+                    $('.slides').append('<li>' + (first + i) + '</li>')
+                }
+                $('.slides').fadeIn()
+            }
+            addLi(pageIndex)
+
+            $('.left').click(function () {
+                pageIndex = pageIndex - 1
+                console.log(pageIndex)                
+                addLi(pageIndex)
+            })
+            $('.right').click(function () {
+                pageIndex = pageIndex + 1
+                console.log(pageIndex)
+                addLi(pageIndex)
+            })
+
 		})
 	</script>
 </body>
