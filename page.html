@@ -14,6 +14,7 @@
 
         body {
             display: flex;
+            flex-direction: column;
             justify-content: center;
             align-items: center;
             background: rgb(240, 240, 240);
@@ -27,15 +28,28 @@
             text-decoration: none;
         }
 
+        ul{
+            padding: 0;
+        }
+
         .pageContent {
             width: 980px;
-            height: 460px;
+            height: 240px;
             background: #fff;
             position: relative;
         }
+        .pageSlides{
+            align-self: flex-end;
+            
+        }
+        .pageSlides li{
+            background-color: #acacac;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+        }
 
-        .pageContent ul {
-            padding: 0;
+        .pageContent .slides {
             display: flex;
             justify-content: space-around;
             flex-wrap: wrap;
@@ -49,31 +63,37 @@
             border: 1px solid #ddd;
         }
 
-        .left,
-        .right {
-            position: absolute;
-            top: 45%;
+        .arr{
             display: none;
-            width: 25px;
-            height: 70px;
+        }
+
+        .left,.right {
+            position: absolute;
+            top: 36%;
+            display: block;
+            width: 32px;
+            height: 80px;
         }
 
         .left {
             left: 5px;
-            background: #ccc url('image/arrow-left.png') -4px 20px no-repeat;
+            background: #ccc url('image/arrow-left.png') 0px 24px no-repeat;
         }
 
         .right {
             right: 5px;
-            background: #ccc url('image/arrow-right.png') -2px 20px no-repeat;
+            background: #ccc url('image/arrow-right.png') 0px 24px no-repeat;
         }
     </style>
 </head>
 
 <body>
+    <ul class="pageSlides">
+        <li></li>
+    </ul>
     <div class="pageContent">
-        <ul class="slides">
-        </ul>
+        
+        <ul class="slides"></ul>
         <div class="arr">
             <a href="javascript:void(0);" class="left"></a>
             <a href="javascript:void(0);" class="right"></a>
@@ -89,49 +109,48 @@
 
             var pageNumber = mObj.length
             var pageIndex = 1
-            var pageCount = Math.ceil(pageNumber / 8)
+            var pageCount = Math.ceil(pageNumber / 4)
 
-            function controlArr(idx){
-                $('.left').hide()
-                $('.right').hide()
-                if(idx == 1 && pageNumber>8){
-                    $('.right').show()
-                }
-                else if(idx == pageCount && pageNumber>8){
-                    $('.left').show()
-                }
-                else if(idx>1 && idx<pageCount){
-                    $('.left').show()
-                    $('.right').show()
-                }
+            function addPage(){
+
             }
-            controlArr(pageIndex)
 
             function addLi(idx) {
-                var first = (idx - 1) * 8
-                var num = pageNumber - first > 8 ? 8 : pageNumber - first
-                $('.slides').fadeOut(200)
+                var first = (idx - 1) * 4
+                var num = pageNumber - first > 4 ? 4 : pageNumber - first
+                $('.slides').fadeOut(50)
                 $('.slides').html('')
-                controlArr(idx)
 
                 //添加元素
                 for (var i = 1; i <= num; i++) {
                     $('.slides').append('<li>' + (first + i) + '</li>')
                 }
                 
-                $('.slides').fadeIn()
+                $('.slides').fadeIn(100)
             }
             addLi(pageIndex)
 
             $('.left').click(function () {
                 pageIndex = pageIndex - 1
-                console.log(pageIndex)                
+                console.log(pageIndex)
+                if(pageIndex < 1){
+                    pageIndex = pageCount
+                }             
                 addLi(pageIndex)
             })
             $('.right').click(function () {
                 pageIndex = pageIndex + 1
                 console.log(pageIndex)
+                if(pageIndex > pageCount){
+                    pageIndex = 1
+                }
                 addLi(pageIndex)
+            })
+
+            $('.pageContent').hover(function(){
+                $('.arr').fadeIn()
+            },function(){
+                $('.arr').fadeOut()
             })
 
         })
