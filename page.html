@@ -32,6 +32,10 @@
             padding: 0;
         }
 
+        .content{
+
+        }
+
         .pageContent {
             width: 980px;
             height: 240px;
@@ -52,6 +56,7 @@
         .pageContent .slides {
             display: flex;
             justify-content: space-around;
+            align-items: center;
             flex-wrap: wrap;
             width: 100%;
             height: 100%;
@@ -88,17 +93,19 @@
 </head>
 
 <body>
-    <ul class="pageSlides">
-        <li></li>
-    </ul>
-    <div class="pageContent">
-        
-        <ul class="slides"></ul>
-        <div class="arr">
-            <a href="javascript:void(0);" class="left"></a>
-            <a href="javascript:void(0);" class="right"></a>
+    <div class="content">
+        <ul class="pageSlides">
+            <li></li>
+        </ul>
+        <div class="pageContent">                    
+            <ul class="slides"></ul>
+                <div class="arr">
+                    <a href="javascript:void(0);" class="left"></a>
+                    <a href="javascript:void(0);" class="right"></a>
+                </div>
         </div>
     </div>
+    
     <script>
         $('document').ready(function () {
             var mObj = new Array()
