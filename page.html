@@ -33,7 +33,8 @@
         }
 
         .content{
-
+            display: flex;
+            flex-direction: column;
         }
 
         .pageContent {
@@ -42,15 +43,23 @@
             background: #fff;
             position: relative;
         }
+
         .pageSlides{
             align-self: flex-end;
-            
+            display: flex;
         }
+
         .pageSlides li{
             background-color: #acacac;
             width: 10px;
             height: 10px;
+            margin-left: 4px;
             border-radius: 50%;
+            cursor: pointer;
+        }
+
+        .pageSlides li.active{
+            background-color: #cc3333;
         }
 
         .pageContent .slides {
@@ -60,6 +69,7 @@
             flex-wrap: wrap;
             width: 100%;
             height: 100%;
+            margin: 0;
         }
 
         .pageContent li {
@@ -95,7 +105,6 @@
 <body>
     <div class="content">
         <ul class="pageSlides">
-            <li></li>
         </ul>
         <div class="pageContent">                    
             <ul class="slides"></ul>
@@ -109,7 +118,7 @@
     <script>
         $('document').ready(function () {
             var mObj = new Array()
-            for(var j=0; j<17; j++){
+            for(var j=0; j<3; j++){
                 mObj.push(j)
             }
             //console.log(mObj.length)
@@ -119,8 +128,20 @@
             var pageCount = Math.ceil(pageNumber / 4)
 
             function addPage(){
-
+                for(var i=0;i<pageCount;i++){
+                    $('.pageSlides').append('<li></li>')
+                }
             }
+            addPage()
+            $('.pageSlides li:first').addClass('active')
+
+
+            $('.pageSlides li').each(function(idx,ele){
+                $(ele).click(function(){
+                    $(ele).addClass('active').siblings().removeClass('active')
+                    addLi(idx+1)
+                })
+            })
 
             function addLi(idx) {
                 var first = (idx - 1) * 4
