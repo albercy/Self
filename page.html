@@ -2,187 +2,200 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <title>翻页测试</title>
-    <script src="utils/jquery-3.2.1.min.js"></script>
-    <style>
-        html,
-        body {
-            height: 100%;
-            margin: 0;
-        }
+	<meta charset="UTF-8">
+	<title>翻页测试</title>
+	<script src="utils/jquery-3.2.1.min.js"></script>
+	<style>
+		html,
+		body {
+			height: 100%;
+			margin: 0;
+		}
 
-        body {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            background: rgb(240, 240, 240);
-        }
+		body {
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			align-items: center;
+			background: rgb(240, 240, 240);
+		}
 
-        li {
-            list-style: none;
-        }
+		li {
+			list-style: none;
+		}
 
-        a {
-            text-decoration: none;
-        }
+		a {
+			text-decoration: none;
+		}
 
-        ul{
-            padding: 0;
-        }
+		ul {
+			padding: 0;
+		}
 
-        .content{
-            display: flex;
-            flex-direction: column;
-        }
+		.content {
+			display: flex;
+			flex-direction: column;
+		}
 
-        .pageContent {
-            width: 980px;
-            height: 240px;
-            background: #fff;
-            position: relative;
-        }
+		.pageContent {
+			width: 980px;
+			height: 240px;
+			background: #fff;
+			position: relative;
+		}
 
-        .pageSlides{
-            align-self: flex-end;
-            display: flex;
-        }
+		.pageSlides {
+			align-self: flex-end;
+			display: flex;
+		}
 
-        .pageSlides li{
-            background-color: #acacac;
-            width: 10px;
-            height: 10px;
-            margin-left: 4px;
-            border-radius: 50%;
-            cursor: pointer;
-        }
+		.pageSlides li {
+			background-color: #acacac;
+			width: 10px;
+			height: 10px;
+			margin-left: 4px;
+			border-radius: 50%;
+			cursor: pointer;
+		}
 
-        .pageSlides li.active{
-            background-color: #cc3333;
-        }
+		.pageSlides li.active {
+			background-color: #cc3333;
+		}
 
-        .pageContent .slides {
-            display: flex;
-            justify-content: space-around;
-            align-items: center;
-            flex-wrap: wrap;
-            width: 100%;
-            height: 100%;
-            margin: 0;
-        }
+		.pageContent .slides {
+			display: flex;
+			justify-content: space-around;
+			align-items: center;
+			flex-wrap: wrap;
+			width: 100%;
+			height: 100%;
+			margin: 0;
+		}
 
-        .pageContent li {
-            width: 200px;
-            height: 200px;
-            border: 1px solid #ddd;
-        }
+		.pageContent li {
+			width: 200px;
+			height: 200px;
+			border: 1px solid #ddd;
+		}
 
-        .arr{
-            display: none;
-        }
+		.arr {
+			display: none;
+		}
 
-        .left,.right {
-            position: absolute;
-            top: 36%;
-            display: block;
-            width: 32px;
-            height: 80px;
-        }
+		.left,
+		.right {
+			position: absolute;
+			top: 36%;
+			display: block;
+			width: 32px;
+			height: 80px;
+		}
 
-        .left {
-            left: 5px;
-            background: #ccc url('image/arrow-left.png') 0px 24px no-repeat;
-        }
+		.left {
+			left: 5px;
+			background: #ccc url('image/arrow-left.png') 0px 24px no-repeat;
+		}
 
-        .right {
-            right: 5px;
-            background: #ccc url('image/arrow-right.png') 0px 24px no-repeat;
-        }
-    </style>
+		.right {
+			right: 5px;
+			background: #ccc url('image/arrow-right.png') 0px 24px no-repeat;
+		}
+	</style>
 </head>
 
 <body>
-    <div class="content">
-        <ul class="pageSlides">
-        </ul>
-        <div class="pageContent">                    
-            <ul class="slides"></ul>
-                <div class="arr">
-                    <a href="javascript:void(0);" class="left"></a>
-                    <a href="javascript:void(0);" class="right"></a>
-                </div>
-        </div>
-    </div>
-    
-    <script>
-        $('document').ready(function () {
-            var mObj = new Array()
-            for(var j=0; j<3; j++){
-                mObj.push(j)
-            }
-            //console.log(mObj.length)
+	<div class="content">
+		<ul class="pageSlides">
+		</ul>
+		<div class="pageContent">
+			<ul class="slides"></ul>
+			<div class="arr">
+				<a href="javascript:void(0);" class="left"></a>
+				<a href="javascript:void(0);" class="right"></a>
+			</div>
+		</div>
+	</div>
 
-            var pageNumber = mObj.length
-            var pageIndex = 1
-            var pageCount = Math.ceil(pageNumber / 4)
+	<script>
+		$('document').ready(function () {
+			var mObj = new Array()
+			for (var j = 0; j < 20; j++) {
+				mObj.push(j)
+			}
+			//console.log(mObj.length)
 
-            function addPage(){
-                for(var i=0;i<pageCount;i++){
-                    $('.pageSlides').append('<li></li>')
-                }
-            }
-            addPage()
-            $('.pageSlides li:first').addClass('active')
+			var pageNumber = mObj.length
+			var pageIndex = 1
+			var pageCount = Math.ceil(pageNumber / 4)
+
+			function addPage() {
+				for (var i = 0; i < pageCount; i++) {
+					$('.pageSlides').append('<li></li>')
+				}
+			}
+
+			function changPage(idx) {
+				//console.log(ele)
+				var nthLi = '.pageSlides li:nth-child(' + idx + ')'
+				$(nthLi).addClass('active').siblings().removeClass('active')
+			}
+
+			function addLi(idx) {
+				var first = (idx - 1) * 4
+				var num = pageNumber - first > 4 ? 4 : pageNumber - first
+				$('.slides').fadeOut(50)
+				$('.slides').html('')
+				changPage(idx)
+
+				//添加元素
+				for (var i = 1; i <= num; i++) {
+					$('.slides').append('<li>' + (first + i) + '</li>')
+				}
+
+				$('.slides').fadeIn(100)
+			}
+			addLi(pageIndex)
+
+			if (pageCount > 1) {
+				addPage()
+				$('.pageSlides li:first').addClass('active')
+
+				$('.pageContent').hover(function () {
+					$('.arr').fadeIn()
+				}, function () {
+					$('.arr').fadeOut()
+				})
+			}
+
+			$('.pageSlides li').each(function (idx, ele) {
+				$(ele).click(function () {
+					//$(ele).addClass('active').siblings().removeClass('active')
+					changPage(idx)
+					addLi(idx + 1)
+				})
+			})
+
+			$('.left').click(function () {
+				pageIndex = pageIndex - 1
+				//console.log(pageIndex)
+				if (pageIndex < 1) {
+					pageIndex = pageCount
+				}
+				addLi(pageIndex)
+			})
+			$('.right').click(function () {
+				pageIndex = pageIndex + 1
+				//console.log(pageIndex)
+				if (pageIndex > pageCount) {
+					pageIndex = 1
+				}
+				addLi(pageIndex)
+			})
 
 
-            $('.pageSlides li').each(function(idx,ele){
-                $(ele).click(function(){
-                    $(ele).addClass('active').siblings().removeClass('active')
-                    addLi(idx+1)
-                })
-            })
 
-            function addLi(idx) {
-                var first = (idx - 1) * 4
-                var num = pageNumber - first > 4 ? 4 : pageNumber - first
-                $('.slides').fadeOut(50)
-                $('.slides').html('')
-
-                //添加元素
-                for (var i = 1; i <= num; i++) {
-                    $('.slides').append('<li>' + (first + i) + '</li>')
-                }
-                
-                $('.slides').fadeIn(100)
-            }
-            addLi(pageIndex)
-
-            $('.left').click(function () {
-                pageIndex = pageIndex - 1
-                console.log(pageIndex)
-                if(pageIndex < 1){
-                    pageIndex = pageCount
-                }             
-                addLi(pageIndex)
-            })
-            $('.right').click(function () {
-                pageIndex = pageIndex + 1
-                console.log(pageIndex)
-                if(pageIndex > pageCount){
-                    pageIndex = 1
-                }
-                addLi(pageIndex)
-            })
-
-            $('.pageContent').hover(function(){
-                $('.arr').fadeIn()
-            },function(){
-                $('.arr').fadeOut()
-            })
-
-        })
-    </script>
+		})
+	</script>
 
 </body>
 
