@@ -170,14 +170,15 @@
 			$('.pageSlides li').each(function (idx, ele) {
 				$(ele).click(function () {
 					//$(ele).addClass('active').siblings().removeClass('active')
+					pageIndex = idx + 1
 					changPage(idx)
-					addLi(idx + 1)
+					addLi(pageIndex)
 				})
 			})
 
 			$('.left').click(function () {
 				pageIndex = pageIndex - 1
-				//console.log(pageIndex)
+				console.log(pageIndex)
 				if (pageIndex < 1) {
 					pageIndex = pageCount
 				}
@@ -185,7 +186,7 @@
 			})
 			$('.right').click(function () {
 				pageIndex = pageIndex + 1
-				//console.log(pageIndex)
+				console.log(pageIndex)
 				if (pageIndex > pageCount) {
 					pageIndex = 1
 				}

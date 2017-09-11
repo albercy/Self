@@ -1,17 +1,305 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>测试专用</title>
-    <script src="utils/jquery-3.2.1.min.js"></script>
-    <script src="utils/vue.js"></script>
-</head>
-<body>
 
-    <script src="productObj.js"></script>
-    <script>
-        var mStr = getProduct.productObj()
-        console.log(mStr)
-    </script>
+<head>
+	<meta charset="UTF-8">
+	<title>测试专用</title>
+	<script src="utils/jquery-3.2.1.min.js"></script>
+	<script src="utils/vue.js"></script>
+	<script src="productObj.js"></script>
+	<style>
+		html,
+		body {
+			height: 100%;
+			margin: 0;
+		}
+
+		body {
+			background: rgb(240, 240, 240);
+			display: flex;
+			justify-content: center;
+			align-items: center;
+		}
+
+		li {
+			list-style: none;
+		}
+
+		a {
+			text-decoration: none;
+			color: #969696;
+		}
+
+		a:hover {
+			color: #0085d0;
+		}
+
+		.test {
+			width: 980px;
+		}
+
+		.pageSlides {
+			align-self: flex-end;
+			display: flex;
+		}
+
+		.pageSlides li {
+			background-color: #acacac;
+			width: 10px;
+			height: 10px;
+			margin-left: 4px;
+			border-radius: 50%;
+			cursor: pointer;
+		}
+
+		.pageSlides li.active {
+			background-color: #cc3333;
+		}
+
+		.title-left,
+		.title-right {
+			display: inline-block;
+		}
+
+		.title-right {
+			float: right;
+		}
+
+		.cartTitle ul {
+			padding: 0;
+			margin: 0;
+		}
+
+		.cartTitle .title-left ul li {
+			padding: 1px 10px;
+			display: inline-block;
+			color: #898989;
+			font-size: 14px;
+			margin-right: 5px;
+			cursor: pointer;
+		}
+
+		.cartTitle .title-left ul .active {
+			background: #0085d0;
+			color: #fff;
+			border-radius: 20px;
+		}
+
+		.cartContent {
+			position: relative;
+			text-align: center;
+			margin-top: 10px;
+			width: 100%;
+			height: 240px;
+			background: #fff;
+		}
+
+		.cartContent ul li {
+			position: relative;
+			margin-top: 15px;
+			margin-right: 20px;
+			float: left;
+			width: 200px;
+			height: 200px;
+			border: 1px solid #ddd;
+			text-align: center;
+		}
+
+		.cartContent ul li img {
+			width: 140px;
+			height: auto;
+			margin-top: 12px;
+		}
+
+		.cartContent ul li p {
+			margin: 0;
+			color: #f33;
+			font-size: 15px;
+			margin-bottom: 2px;
+		}
+
+		.cartContent ul li p span {
+			font-size: 13px;
+		}
+
+		.cartContent ul li a {
+			display: inline-block;
+			width: 96%;
+			text-align: center;
+
+			overflow: hidden;
+			text-overflow: ellipsis;
+			white-space: nowrap;
+		}
+
+		.cartContent .shopcart {
+			position: absolute;
+			right: 5px;
+			bottom: 45px;
+			width: 28px;
+			height: 28px;
+			border-radius: 28px;
+			background-color: rgba(255, 102, 102, 0.7);
+			cursor: pointer;
+		}
+
+		.cartContent .shopcart .cart-icon {
+			display: inline-block;
+			width: 28px;
+			height: 28px;
+			border-radius: 28px;
+			background: #ff6666 url('image/shoppingcart.png') 3px 3px no-repeat;
+			background-size: 22px 22px;
+			position: absolute;
+			left: 0;
+			z-index: 1;
+		}
+
+		.cartContent .shopcart span {
+			display: inline-block;
+			padding-right: 5px;
+			text-align: right;
+			color: #fff;
+			height: 100%;
+			line-height: 28px;
+			overflow: hidden;
+			position: absolute;
+			right: 0;
+		}
+
+		.arr {
+			display: none;
+		}
+
+		.left,
+		.right {
+			position: absolute;
+			top: 36%;
+			display: block;
+			width: 32px;
+			height: 80px;
+		}
+
+		.left {
+			left: 5px;
+			background: #ccc url('image/arrow-left.png') 0px 24px no-repeat;
+		}
+
+		.right {
+			right: 5px;
+			background: #ccc url('image/arrow-right.png') 0px 24px no-repeat;
+		}
+	</style>
+</head>
+
+<body>
+	<div class="test">
+		<div class="cartTitle">
+			<div class="title-left">
+				<ul>
+					<li class="active">最近浏览</li>
+					<li>购买历史</li>
+					<li>收藏商品</li>
+				</ul>
+			</div>
+			<div class="title-right">
+				<ul class="pageSlides"></ul>
+				<a href=""></a>
+			</div>
+		</div>
+		<div class="cartContent">
+			<ul class="slides">
+				<li v-for='pro in pros'>
+					<img :src="pro.productImg" alt="">
+					<p><span>￥</span>{{pro.productPrice}}</p>
+					<a href="">{{pro.productName}}</a>
+					<div class="shopcart">
+						<i class="cart-icon"></i>
+						<span>加入购物车</span>
+					</div>
+				</li>
+			</ul>
+			<div class="arr">
+				<a href="javascript:void(0);" class="left"></a>
+				<a href="javascript:void(0);" class="right"></a>
+			</div>
+		</div>
+	</div>
+	<script>
+		$(document).ready(function () {
+			var mObj = getProduct.productObj()
+
+			var pro = new Vue({
+				el: '.slides',
+				data: {
+					pros: mObj
+				}
+			})
+
+			var pageNumber = mObj.length //总条目数
+			var pageIndex = 1 //当前页码
+			var pageCount = Math.ceil(pageNumber / 4) //总页数
+			var pageSize = 4 //每页显示条目数
+
+			function goPage () {
+				
+			}
+
+			function addPage() {
+				console.log(pageCount)
+				for (var i = 0; i < pageCount; i++) {
+					$('.pageSlides').append('<li></li>')
+				}
+				$('.pageSlides li:first').addClass('active')
+			}
+			addPage()
+
+			$('.title-left li').each(function (idx, ele) {
+				$(this).click(function () {
+					$(this).addClass('active').siblings().removeClass('active');
+					var mTitle = $(this).text()
+
+					if (mTitle.indexOf('最近浏览') != -1) {
+						//$('.title-right').html('<ul class="pageSlides"></ul>')
+						$('.title-right ul').show()
+						$('.title-right a').hide()
+					}
+					else {
+						$('.title-right ul').hide()
+						$('.title-right a').show()
+						if (mTitle.indexOf('购买历史') != -1) {
+							$('.title-right a').text('查看购买历史 >>')
+						}
+						if (mTitle.indexOf('收藏商品') != -1) {
+							$('.title-right a').text('去我的收藏夹 >>')
+						}
+					}
+
+					$('.title-right a').attr('href', '#')
+				})
+			})
+
+			$('.shopcart').hover(function () {
+				$(this).stop().animate({ width: '97px' }, 300)
+			}, function () {
+				$(this).stop().animate({ width: '28px' })
+			})
+
+			$('.slides li').each(function (idx, ele) {
+				if (idx >= 4) {
+					$(this).hide()
+				}
+			})
+
+			if (pageCount > 1) {
+				$('.cartContent').hover(function () {
+					$('.arr').fadeIn()
+				}, function () {
+					$('.arr').fadeOut()
+				})
+			}
+		})
+	</script>
 </body>
+
 </html>
