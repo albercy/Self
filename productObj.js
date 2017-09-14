@@ -2,7 +2,7 @@ var getProduct = {
     productObj: function(){
         var mObj = [
             {
-                productName: '高丽参(同和堂) (天)字37.5g*30支 广东天诚中药饮片有限公司',
+                productName: '高丽参(同和堂) (天)字37.5g*30支 广东天诚中药饮片有限公司1',
                 productPrice: '28.00',
                 productImg: 'image/photo.jpg'
             },
@@ -22,7 +22,7 @@ var getProduct = {
                 productImg: 'image/photo.jpg'
             },
             {
-                productName: '999 抗病毒口服液 10ml*10支 杭州老桐君制药有限公司',
+                productName: '999 抗病毒口服液 10ml*10支 杭州老桐君制药有限公司5',
                 productPrice: '12.00',
                 productImg: 'image/photo.jpg'
             },
@@ -42,7 +42,7 @@ var getProduct = {
                 productImg: 'image/photo.jpg'
             },
             {
-                productName: '999 抗病毒口服液 10ml*10支 杭州老桐君制药有限公司',
+                productName: '999 抗病毒口服液 10ml*10支 杭州老桐君制药有限公司9',
                 productPrice: '12.00',
                 productImg: 'image/photo.jpg'
             },
@@ -62,7 +62,7 @@ var getProduct = {
                 productImg: 'image/photo.jpg'
             },
             {
-                productName: '肾宝糖浆 10ml*10支 江西美媛春药业股份有限公司',
+                productName: '肾宝糖浆 10ml*10支 江西美媛春药业股份有限公司13',
                 productPrice: '30.00',
                 productImg: 'image/photo.jpg'
             },
@@ -82,7 +82,7 @@ var getProduct = {
                 productImg: 'image/photo.jpg'
             },
             {
-                productName: '阿莫西林胶囊 0.125g*50粒 佛山手心制药有限公司',
+                productName: '阿莫西林胶囊 0.125g*50粒 佛山手心制药有限公司17',
                 productPrice: '15.00',
                 productImg: 'image/photo.jpg'
             },

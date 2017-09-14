@@ -212,7 +212,7 @@
 				<li v-for='pro in pros'>
 					<img :src="pro.productImg" alt="">
 					<p><span>￥</span>{{pro.productPrice}}</p>
-					<a href="">{{pro.productName}}</a>
+					<a href="" :title="pro.productName">{{pro.productName}}</a>
 					<div class="shopcart">
 						<i class="cart-icon"></i>
 						<span>加入购物车</span>
@@ -241,16 +241,36 @@
 			var pageCount = Math.ceil(pageNumber / 4) //总页数
 			var pageSize = 4 //每页显示条目数
 
-			function goPage (idx) {
-				
+			function goPage(pageIdx) {
+				var start = 4 * pageIdx - 3
+				var end = 4 * pageIdx > pageNumber ? pageNumber : 4 * pageIdx
+
+				changPage(pageIdx)
+				$('.slides li').each(function (idx, ele) {
+					if (idx + 1 > end || idx + 1 < start) {
+						$(this).hide()
+					}
+					else {
+						$(this).fadeIn(300)
+					}
+				})
+			}
+			goPage(pageIndex)
+
+			function changPage(idx) {
+				var nthLi = '.pageSlides li:nth-child(' + idx + ')'
+				$(nthLi).addClass('active').siblings().removeClass('active')
 			}
 
 			function addPage() {
 				console.log(pageCount)
-				for (var i = 0; i < pageCount; i++) {
-					$('.pageSlides').append('<li></li>')
+				if (pageCount > 1) {
+					for (var i = 0; i < pageCount; i++) {
+						$('.pageSlides').append('<li></li>')
+					}
+					$('.pageSlides li:first').addClass('active')
 				}
-				$('.pageSlides li:first').addClass('active')
+
 			}
 			addPage()
 
@@ -285,19 +305,41 @@
 				$(this).stop().animate({ width: '28px' })
 			})
 
-			$('.slides li').each(function (idx, ele) {
-				if (idx >= 4) {
-					$(this).hide()
+
+			$('.cartContent').hover(function () {
+				if (pageCount > 1 && $('.title-left li:first').hasClass('active')) {
+					$('.arr').fadeIn()
 				}
+			}, function () {
+				$('.arr').fadeOut()
 			})
 
-			if (pageCount > 1) {
-				$('.cartContent').hover(function () {
-					$('.arr').fadeIn()
-				}, function () {
-					$('.arr').fadeOut()
+
+			$('.pageSlides li').each(function (idx, ele) {
+				$(ele).click(function () {
+					pageIndex = idx + 1
+					changPage(idx)
+					goPage(pageIndex)
 				})
-			}
+			})
+
+			$('.left').click(function () {
+				pageIndex = pageIndex - 1
+				console.log(pageIndex)
+				if (pageIndex < 1) {
+					pageIndex = pageCount
+				}
+				goPage(pageIndex)
+			})
+
+			$('.right').click(function () {
+				pageIndex = pageIndex + 1
+				console.log(pageIndex)
+				if (pageIndex > pageCount) {
+					pageIndex = 1
+				}
+				goPage(pageIndex)
+			})
 		})
 	</script>
 </body>
