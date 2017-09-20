@@ -1,0 +1,36 @@
+<view class="logistics">
+  <view class="logistics-title">
+    <text>包裹号 PC20170904001</text>
+    <text>时间  2017-09-04 16:47:07</text>
+    <text>发件机构  广东亿荣电子商务有限公司</text>
+    <text>备注  开具发票</text>
+    <view class='fromTo'>
+        <text>马画藤 13131313131</text>
+        <text>广州天河华普广场东塔1902</text>
+        <text>马云  12345678911</text>
+        <text>广州番禺万达广场A座1001</text>
+    </view>
+  </view>
+  <view class="logistics-content">
+    <view class="logistics-list">
+      <text>【广州市】您的订单在天河分散中心分拣完成</text>
+      <text>2017-06-19 17:26:39</text>
+    </view>
+    <view class="logistics-list">
+      <text>【广州市】您的订单已通过扫描确认</text>
+      <text>2017-6-19 10:50:49</text>
+    </view>
+  </view>
+  <view class='products-content'>
+      <view class='products-list'>
+          <view>
+              <text>USB外接百兆网卡</text>
+              <text>￥39</text>
+          </view>
+          <view>
+              <text>sku001</text>
+              <text>x4</text>
+          </view>        
+      </view>
+  </view>
+</view>

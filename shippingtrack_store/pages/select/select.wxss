@@ -1,0 +1,31 @@
+page{
+  background: #f4f4f4;
+}
+
+.selectContent{
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;  
+}
+.selectArea{
+  display: flex;
+  flex-direction: column;
+}
+.selectArea text{
+  margin-top: 20rpx;
+  display: inline-block;
+  width: 100%;
+  text-align: center;
+  background: #fff;
+  padding: 20rpx 0;
+  font-size: 33rpx;
+  font-weight: 300;
+}
+.nextBtn{
+  margin-bottom: 20rpx;
+  color: #fff;
+  width: 95%;
+  font-size: 33rpx;
+  background: #199ED8;
+}

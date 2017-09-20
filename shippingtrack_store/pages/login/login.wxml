@@ -1,0 +1,9 @@
+<view class="content">
+    <form bindsubmit="loginSubmit">
+        <view class="input-area">
+            <input id="username" name="userName" type="text" placeholder="请输入你的帐号" value="{{username}}" />
+            <input id="password" name="password" type="password" placeholder="请输入你的密码" value="{{password}}" />
+        </view>
+        <button formType="submit" loading="{{btnLoading}}" class="login-btn" loading="{{btnLoad}}" plain="{{btnPlain}}">   登录</button>
+    </form>
+</view>

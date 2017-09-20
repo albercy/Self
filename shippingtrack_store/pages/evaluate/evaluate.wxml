@@ -1,0 +1,20 @@
+<view class="evaluate">
+  <view class="evaluate-title">
+    <text>物流服务评价</text>
+    <text>满意请给5星哦</text>
+  </view>
+  <view class="evaluate-select">
+    <view class="select" wx:for="{{selectArr}}" wx:for-item="selectTitle">
+      <view>{{selectTitle}}</view>
+      <view class="classname">
+        <image wx:for="{{starArr}}" src="../images/star_{{item}}.png" bindtap="imgClick" id="{{index}}" class="star"></image>
+      </view>
+    </view>
+  </view>
+  <view class="evaluate-content">
+    <textarea placeholder="{{tip}}" />
+  </view>
+  <view class="evaluate-submit">
+    <button>提交</button>
+  </view>
+</view>

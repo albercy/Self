@@ -1,0 +1,5 @@
+.page{
+  width: 100%;
+  padding-left: 100rpx;
+  letter-spacing: 20rpx;
+}

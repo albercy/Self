@@ -1,0 +1,3 @@
+<view class='page'>
+  <text wx:for='{{pageArr}}'>{{item}}</text>
+</view>

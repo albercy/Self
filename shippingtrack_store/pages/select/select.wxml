@@ -1,0 +1,6 @@
+<view class='selectContent'>
+  <view class='selectArea'>
+    <text wx:for='{{selectArr}}' id='{{index}}' bindtap='selectItem'>{{item}}</text>
+  </view>
+  <button class='nextBtn'>下一步</button>
+</view>
