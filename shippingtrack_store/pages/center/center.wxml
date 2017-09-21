@@ -1,6 +1,5 @@
 <view class='page'>
-  <text wx:if='{{lastShow}}'>{{last}}</text>
-  <text wx:for='{{pageArr}}' bindtap='goPage'>{{item}}</text>
-  <text>...</text>
-  <text wx:if='{{nextShow}}'>{{next}}</text>
+  <text wx:if='{{lastShow}}' bindtap='goPage' id='last'>{{last}}</text>
+  <text wx:for='{{pageArr}}' bindtap='numGoPage' class='page-num {{(index == isSelect ) ? "curr":""}}' id='{{index}}'>{{item}}</text>
+  <text wx:if='{{nextShow}}' bindtap='goPage' id='next'>{{next}}</text>
 </view>

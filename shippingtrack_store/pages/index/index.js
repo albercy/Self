@@ -19,7 +19,7 @@ Page({
       orderData.start = '1810'
       //console.log(orderData)
       httpApi.getHttp(getOrder, function (callback) {
-        console.log(callback)
+        //console.log(callback)
         if (callback.success) {
           that.setData({
             orderCode: callback.results[0].billId,
@@ -53,7 +53,7 @@ Page({
   select: function (e) {
     console.log(e.currentTarget.id)
     wx.redirectTo({
-      url: '../select/select?page=' + e.currentTarget.id,
+      url: '../select/select?page=' + e.currentTarget.id + '&noSkip=' + true,
     })
   },
   exitAccount: function (){
@@ -68,6 +68,5 @@ Page({
         }
       }
     })
-    
   }
 })

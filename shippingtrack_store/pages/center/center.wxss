@@ -8,3 +8,7 @@
   border: 1px solid #ccc;
   margin-left: -1px;
 }
+
+.page .curr{
+  color: #f00;
+}

@@ -1,42 +1,46 @@
 <view class="home">
-    <view class="ava-content">
-        <view class='menu'>
-            <text bindtap='exitAccount'>注销用户</text>
-            <text bindtap='select' id='1'>切换机构</text>
-            <text bindtap='select' id='2'>切换服务商</text>
-        </view>
-        <image src="../images/ava.png" class="ava" bindtap="toCenter"></image>
-        <text class="username">{{userName}}</text>
-        <text>{{relOrgName}}</text>
-        <text>{{orgName}}</text>
+  <view class="ava-content">
+    <view class='menu'>
+      <text bindtap='exitAccount'>注销用户</text>
+      <text bindtap='select' id='1'>切换机构</text>
+      <text bindtap='select' id='2'>切换服务商</text>
     </view>
-    <view class='order-content'>
-        <view class="newOrder">
-            <view class='order-top'>
-                <text>最新动态</text>
-                <text>更多...</text>
-            </view>
-            <view class='order'>
-                <view class='order-title'>
-                    <text>订单号 {{orderCode}}</text>
-                    <text>{{createTime}}</text>
-                </view>
-                <view class='package-content'>
-                    <view class='package' wx:for="{{parcelArr}}">
-                        <view class='package-title'>
-                            <text>包裹号 {{item.parcelCode}}</text>
-                            <text>{{item.state}}</text>
-                        </view>
-                        <text>配送员：{{item.sender}}</text>
-                        <text>{{item.lastModifyTime}}</text>
-                    </view>
-                </view>
-            </view>
+    <image src="../images/ava.png" class="ava" bindtap="toCenter"></image>
+    
+      <text class="username">{{userName}}</text>
+      <text>{{relOrgName}}</text>
+      <text>{{orgName}}</text>
+    
+  </view>
+  <view class='order-content'>
+    <view class="newOrder">
+      <view class='order-top'>
+        <text>最新动态</text>
+        <navigator url='../orderList/orderList'>更多...</navigator>
+      </view>
+
+      <navigator class='order' url='../packageDetail/packageDetail'>
+        <view class='order-title'>
+          <text>订单号 {{orderCode}}</text>
+          <text>{{createTime}}</text>
         </view>
-        <view class='tip'>
-            <text>提示：</text>
-            <text>1、订单、包裹信息来源为供货商，信息非完整信息，以供货商实际信息为准，此程序仅供参考。</text>
-            <text>2、如果查询结果为空，请检查当前机构和服务商，或信息未更新。</text>
+        <view class='package-content'>
+          <view class='package' wx:for="{{parcelArr}}">
+            <view class='package-title'>
+              <text>包裹号 {{item.parcelCode}}</text>
+              <text>状态 {{item.state}}</text>
+            </view>
+            <text>配送员：{{item.sender}}</text>
+            <text>{{item.lastModifyTime}}</text>
+          </view>
         </view>
+      </navigator>
+
     </view>
+    <view class='tip'>
+      <text>提示：</text>
+      <text>1、订单、包裹信息来源为供货商，信息非完整信息，以供货商实际信息为准，此程序仅供参考。</text>
+      <text>2、如果查询结果为空，请检查当前机构和服务商，或信息未更新。</text>
+    </view>
+  </view>
 </view>

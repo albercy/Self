@@ -11,6 +11,7 @@ page {
     align-items: center;
     justify-content: center;
     position: relative;
+    line-height: 50rpx;
 }
 
 .menu {

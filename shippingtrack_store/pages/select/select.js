@@ -25,7 +25,7 @@ Page({
         }
         that.setData({ selectArr: selectArr })
 
-        if (callback.results.length == 1) {
+        if (callback.results.length == 1 && !options.noSkip) {
           // idList.relOrgId = callback.results[0].orgId
           // idList.relOrgName = callback.results[0].orgName
           wx.redirectTo({
@@ -47,14 +47,14 @@ Page({
         }
         that.setData({ selectArr: selectArr })
         
-        if (callback.results.length == 1) {
+        if (callback.results.length == 1 && !options.noSkip) {
           that.goPage()
         }
       }, -1)
     }
   },
   selectItem: function (e) {
-    console.log(e.currentTarget.id)
+    //console.log(e.currentTarget.id)
     var idxNum = parseInt(e.currentTarget.id)
     if (page == 1) {
       relIdx = idxNum
