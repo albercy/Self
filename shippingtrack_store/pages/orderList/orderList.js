@@ -1,4 +1,6 @@
 var footTxt = ''
+var httpApi = require('../../utils/httpApi')
+
 Page({
   data: {
     footTxt: '删除订单'

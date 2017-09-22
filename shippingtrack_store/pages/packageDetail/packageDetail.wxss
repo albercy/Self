@@ -10,31 +10,33 @@ page {
 
 .logistics-title {
   line-height: 50rpx;
-  padding: 15rpx;
+  padding: 10rpx 30rpx;
   display: flex;
   flex-direction: column;
-  background: #fff;
 }
 
 .fromTo {
   margin-top: 10rpx;
   padding-top: 10rpx;
-  border-top: 1px solid #676767;
+  border-top:1px dotted #ccc;
   display: flex;
   flex-direction: column;
 }
 
 .logistics-content {
-  margin-top: 3%;
-  background: #fff;
+  border-top: 1px solid #676767;
 }
 
 .logistics-list {
   line-height: 60rpx;
   display: flex;
   flex-direction: column;
-  padding: 10rpx;
+  padding: 10rpx 30rpx;
   border-bottom: 1px solid #f0f0f0;
+}
+
+.logistics-list:last-child {
+  border: none;
 }
 
 .logistics-list text:last-child {
@@ -42,16 +44,15 @@ page {
   text-indent: 15rpx;
 }
 
-.products-content{
-  margin-top: 3%;
-  background: #fff;
+.products-content {
+  border-top: 1px solid #676767;
 }
 
-.products-list{
+.products-list {
   padding: 10rpx 30rpx;
 }
 
-.products-list view{
+.products-list view {
   display: flex;
-  justify-content: space-between
+  justify-content: space-between;
 }

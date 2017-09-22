@@ -1,4 +1,4 @@
-page{
+page {
   font-size: 30rpx;
   font-weight: 300;
   display: flex;
@@ -6,40 +6,53 @@ page{
   align-items: center;
 }
 
-.select{
+.select {
   margin-top: 20rpx;
 }
 
-.select text{
-    padding: 10rpx 20rpx;
-    border: 1px solid #676767;
-    margin-right: -1px;
+.select text {
+  padding: 10rpx 20rpx;
+  border: 1px solid #676767;
+  margin-right: -1px;
 }
 
-.order-content { 
-    margin-top: 40rpx;
-    padding: 20rpx 5%;
+.search {
+  display: flex;
+  margin-top: 20rpx;
+}
+
+.search input{
+  border-bottom:1px solid #676767;
+}
+
+.search label{
+  padding:10rpx 20rpx;
+}
+
+.order-content {
+  margin-top: 40rpx;
+  padding: 20rpx 5%;
 }
 
 .order-top, .order-title, .package-title {
-    display: flex;
-    justify-content: space-between;
+  display: flex;
+  justify-content: space-between;
 }
 
 .order-title {
-    padding: 8rpx 10rpx;
-    border-bottom: 1px solid #676767;
+  padding: 8rpx 10rpx;
+  border-bottom: 1px solid #676767;
 }
 
 .order {
-    margin-top: 40rpx;
-    width: 90%;
-    border: 1px solid #676767;
+  margin-top: 40rpx;
+  width: 90%;
+  border: 1px solid #676767;
 }
 
 .package {
-    padding: 10rpx;
-    line-height: 50rpx;
-    display: flex;
-    flex-direction: column;
+  padding: 10rpx;
+  line-height: 50rpx;
+  display: flex;
+  flex-direction: column;
 }

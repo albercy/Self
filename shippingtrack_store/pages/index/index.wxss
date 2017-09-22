@@ -58,6 +58,10 @@ page {
     line-height: 50rpx;
     display: flex;
     flex-direction: column;
+    border-bottom:1px solid #ccc;
+}
+.package:last-child{
+    border: none;
 }
 
 .tip {

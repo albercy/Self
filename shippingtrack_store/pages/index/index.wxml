@@ -19,13 +19,13 @@
         <navigator url='../orderList/orderList'>更多...</navigator>
       </view>
 
-      <navigator class='order' url='../packageDetail/packageDetail'>
+      <view class='order'>
         <view class='order-title'>
           <text>订单号 {{orderCode}}</text>
           <text>{{createTime}}</text>
         </view>
         <view class='package-content'>
-          <view class='package' wx:for="{{parcelArr}}">
+          <view class='package' wx:for="{{parcelArr}}"  bindtap='toDetail' data-pIdx='{{index}}'>
             <view class='package-title'>
               <text>包裹号 {{item.parcelCode}}</text>
               <text>状态 {{item.state}}</text>
@@ -34,7 +34,7 @@
             <text>{{item.lastModifyTime}}</text>
           </view>
         </view>
-      </navigator>
+      </view>
 
     </view>
     <view class='tip'>

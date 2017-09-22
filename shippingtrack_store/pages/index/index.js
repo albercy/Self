@@ -1,5 +1,6 @@
 var httpApi = require('../../utils/httpApi')
 var parcelState = ['已揽收','配送中','已收货','已延迟']
+var packageData = []
 
 Page({
   data: {},
@@ -16,8 +17,8 @@ Page({
     var httpPromise = new Promise(function (resolve, reject) {
       var getOrder = 'getERPSellBillsForRelOrgId'
       var orderData = idData
-      orderData.start = '1810'
-      //console.log(orderData)
+      orderData.start = '1809'
+      console.log(orderData)
       httpApi.getHttp(getOrder, function (callback) {
         //console.log(callback)
         if (callback.success) {
@@ -39,13 +40,14 @@ Page({
       }
       //console.log(billData)
       httpApi.getHttp(getBill, function (callback) {
-        console.log(callback)
-        var parcelArr = callback.results
+        //console.log(callback)
+        packageData = callback.results
+        packageData.orgId = idData.orgId
         for(var i=0; i<callback.results.length; i++){
-          parcelArr[i].state = parcelState[parcelArr[i].state]
+          packageData[i].state = parcelState[packageData[i].state]
         }
         that.setData({
-          parcelArr: parcelArr
+          parcelArr: packageData
         })
       }, 1, billData)
     })
@@ -67,6 +69,18 @@ Page({
           })
         }
       }
+    })
+  },
+  toDetail: function(e){
+    //console.log()
+    var detailIdx = e.currentTarget.dataset.pidx
+    var detailData = {
+      orgId: packageData.orgId,
+      bizCenterId: packageData[detailIdx].bizCenterId,
+      parcelCode: packageData[detailIdx].parcelCode
+    }
+    wx.navigateTo({
+      url: '../packageDetail/packageDetail?detailData=' + JSON.stringify(detailData),
     })
   }
 })

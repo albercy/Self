@@ -4,7 +4,8 @@ var httpApi = require('../../utils/httpApi')
 Page({
   data: {
     btnLoad: false,
-    btnPlain: false
+    btnPlain: false,
+    password: 123456
   },
   onLoad: function (options) {
     var that = this
