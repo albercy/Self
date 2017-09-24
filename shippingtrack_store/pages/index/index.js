@@ -1,6 +1,7 @@
 var httpApi = require('../../utils/httpApi')
 var parcelState = ['已揽收','配送中','已收货','已延迟']
 var packageData = []
+//var idData = []
 
 Page({
   data: {},
@@ -9,6 +10,7 @@ Page({
     var that = this
     var idData = JSON.parse(options.idObj)
     that.setData({
+      idData: options.idObj,
       userName: wx.getStorageSync('userName'),
       relOrgName: idData.relOrgName,
       orgName: idData.orgName

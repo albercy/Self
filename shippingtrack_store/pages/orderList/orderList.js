@@ -1,38 +1,46 @@
-var footTxt = ''
 var httpApi = require('../../utils/httpApi')
+var orderArr = []
+var packageArr = []
+var pageCount = 0
+var pageIdx = 0
+var pageList = 0
 
 Page({
-  data: {
-    footTxt: '删除订单'
-  },
+  data: {},
   onLoad: function (options) {
-    console.log(options.footTxt)
-    footTxt = options.footTxt
-    this.setData({
-      footTxt: footTxt
+    //console.log(options)
+    var getOrder = 'getERPSellBillsForRelOrgId'
+    var orderData = JSON.parse(options.idData)
+    var getBill = 'getTmsParcelsByBizBillCode'
+    // var packageData = {
+    //   orgId: orderData.orgId,
+    //   bizBillCode: orderData.bizCenterId
+    // }
+    var httpPromise = new Promise(function(resolve,reject){
+      httpApi.getHttp(getOrder,function(callback){
+        //console.log(callback)
+        if(callback.success){
+          pageCount = callback.totals
+          pageIdx = Math.ceil(pageCount / 10)
+          resolve(callback.results)
+        }
+      },0,orderData)
     })
-  },
-  toPage: function () {
-    if (footTxt == '删除订单') {
-      wx.showModal({
-        title: '提示',
-        content: '是否删除该订单'
-      })
-    }
-    else if (footTxt == '进行催单') {
-      wx.showToast({
-        title: '催单请求已发送，请耐心等候',
-      })
-    }
-    else if (footTxt == '查看物流') {
-      wx.navigateTo({
-        url: '../logistics/logistics'
-      })
-    }
-    else {
-      wx.navigateTo({
-        url: '../evaluate/evaluate'
-      })
-    }
+    httpPromise.then(function(val){
+      //console.log(val)
+      //packageArr = val
+      console.log(options)
+      var packageData = {
+        orgId: JSON.parse(options.idData).orgId
+      }
+      for(var i=0; i<val.length; i++){
+        packageData.bizBillCode = val[i].billId
+        console.log(packageData)
+        httpApi.getHttp(getBill,function(callback){
+          console.log(callback)
+        },1,packageData)
+      }
+      //console.log(packageArr)
+    })
   }
 })

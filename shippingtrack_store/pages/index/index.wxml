@@ -16,7 +16,7 @@
     <view class="newOrder">
       <view class='order-top'>
         <text>最新动态</text>
-        <navigator url='../orderList/orderList'>更多...</navigator>
+        <navigator url='../orderList/orderList?idData={{idData}}'>更多...</navigator>
       </view>
 
       <view class='order'>
