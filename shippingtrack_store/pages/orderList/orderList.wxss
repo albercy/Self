@@ -18,7 +18,7 @@ page {
 
 .search {
   display: flex;
-  margin-top: 20rpx;
+  margin: 25rpx 0 35rpx;
 }
 
 .search input{
@@ -46,7 +46,6 @@ page {
 
 .order {
   margin-top: 40rpx;
-  width: 90%;
   border: 1px solid #676767;
 }
 
@@ -55,4 +54,8 @@ page {
   line-height: 50rpx;
   display: flex;
   flex-direction: column;
+}
+
+.package-none{
+  text-align: right;
 }

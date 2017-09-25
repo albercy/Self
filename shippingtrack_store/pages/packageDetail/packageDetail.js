@@ -6,7 +6,7 @@ Page({
   onLoad: function (options) {
     var that = this
     var detailData = JSON.parse(options.detailData)
-    //console.log(detailData)
+    console.log(detailData)
     var getDetails = 'getTmsParcelTracks'
     httpApi.getHttp(getDetails, function (callback){
       console.log(callback)

@@ -20,17 +20,19 @@ Page({
       httpApi.getHttp(getOrg, function (callback) {
         //console.log(callback.results)
         relArr = callback.results
-        for (var i = 0; i < callback.results.length; i++) {
-          selectArr.push(callback.results[i].orgName)
-        }
-        that.setData({ selectArr: selectArr })
+        if (callback.success) {
+          for (var i = 0; i < callback.results.length; i++) {
+            selectArr.push(callback.results[i].orgName)
+          }
+          that.setData({ selectArr: selectArr })
 
-        if (callback.results.length == 1 && !options.noSkip) {
-          // idList.relOrgId = callback.results[0].orgId
-          // idList.relOrgName = callback.results[0].orgName
-          wx.redirectTo({
-            url: '../select/select?page=2',
-          })
+          if (callback.results.length == 1 && !options.noSkip) {
+            // idList.relOrgId = callback.results[0].orgId
+            // idList.relOrgName = callback.results[0].orgName
+            wx.redirectTo({
+              url: '../select/select?page=2',
+            })
+          }
         }
       }, 1)
     }
@@ -46,7 +48,7 @@ Page({
           selectArr.push(callback.results[i].orgName)
         }
         that.setData({ selectArr: selectArr })
-        
+
         if (callback.results.length == 1 && !options.noSkip) {
           that.goPage()
         }

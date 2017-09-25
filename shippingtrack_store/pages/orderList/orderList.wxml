@@ -1,34 +1,36 @@
 <view class='select'>
-    <text>包裹状态</text>
-    <text>包裹号</text>
-    <text>订单号</text>
+  <text>已揽收</text>
+  <text>配送中</text>
+  <text>已收货</text>
+  <text>已延迟</text>
 </view>
 <view class='search'>
-  <input type='text' placeholder='请输入订单号'/>
+  <input type='text' placeholder='请输入订单号' />
   <label>搜索</label>
 </view>
-<view class='order'>
+<view>
+  <view class='order' wx:for='{{orderArr}}'>
     <view class='order-title'>
-        <text>订单号 1614869</text>
-        <text>2015-01-03</text>
+      <text>订单号 {{item.billId}}</text>
+      <text>{{item.billDate}}</text>
     </view>
     <view class='package-content'>
-        <view class='package'>
-            <view class='package-title'>
-                <text>包裹号 PC20170804001</text>
-                <text>配送中</text>
-            </view>
-            <text>重新配送，配送员：哆啦A梦，马画藤为你...</text>
-            <text>2017-09-06  14:07:09</text>
+      <view wx:if='{{item.packageShow}}'>
+        <view class='package' wx:for='{{item.packageArr}}' wx:for-item='pItem'>
+          <view class='package-title'>
+            <text>包裹号 {{pItem.parcelCode}}</text>
+            <text>状态 {{pItem.state}}</text>
+          </view>
+          <text>配送员：{{pItem.sender}}</text>
+          <text>{{pItem.lastModifyTime}}</text>
         </view>
-        <view class='package'>
-            <view class='package-title'>
-                <text>包裹号 PC20170804001</text>
-                <text>配送中</text>
-            </view>
-            <text>重新配送，配送员：哆啦A梦，马画藤为你...</text>
-            <text>2017-09-06  09:33:10</text>
-        </view>
+      </view>
+      <view class='package' wx:else>
+        <view>暂无订单相关的包裹信息 ...</view>
+        <view class='package-none'>供应商：{{orgName}}</view>
+      </view>
     </view>
+  </view>
 </view>
-<view class='page'></view>
+<view class='page'>
+</view>

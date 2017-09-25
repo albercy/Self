@@ -9,7 +9,8 @@ Page({
     isSelect: 0,
     changeTxt: '全部',
     pageArr: [1, 2, 3],
-    dropArr: ['aaa','bbb','ccc']
+    dropArr: ['aaa','bbb','ccc'],
+    testArr: [{bArr: ['111', '222', '333']}]
   },
   onLoad: function (options) {
     var that = this

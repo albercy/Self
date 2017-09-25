@@ -9,3 +9,8 @@
     <text bindtap='change' data-cTxt='{{item}}' data-idIdx='{{index}}'>{{item}}</text>
   </view>
 </view>
+<view class='test'>
+  <view wx:for='{{testArr}}'>
+    <text wx:for='{{item.bArr}}' wx:for-item='i'>{{i}}</text>
+  </view>
+</view>

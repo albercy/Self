@@ -17,7 +17,7 @@
     </view>
   </view>
   <view class='products-content'>
-      <view class='products-list'>
+      <view class='products-list' bindtap='testMap'>
           <view>
               <text>USB外接百兆网卡</text>
               <text>￥39</text>
