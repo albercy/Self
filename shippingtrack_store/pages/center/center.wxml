@@ -1,13 +1,10 @@
 <view class='page'>
   <text wx:if='{{lastShow}}' bindtap='goPage' id='last'>{{last}}</text>
-  <text wx:for='{{pageArr}}' bindtap='numGoPage' class='page-num {{(index == isSelect ) ? "curr":""}}' id='{{index}}'>{{item}}</text>
+  <text wx:for='{{pageArr}}' bindtap='numGoPage' class='page-num {{(item == isSelect ) ? "curr":""}}' id='{{item}}'>{{item}}</text>
   <text wx:if='{{nextShow}}' bindtap='goPage' id='next'>{{next}}</text>
 </view>
 <view>
-  <text bindtap='drop'>{{changeTxt}}</text>
-  <view wx:for='{{dropArr}}' wx:if='{{dropShow}}'>
-    <text bindtap='change' data-cTxt='{{item}}' data-idIdx='{{index}}'>{{item}}</text>
-  </view>
+  <picker mode='multiSelector' bindchange='multiChange' value='{{}}'></picker>
 </view>
 <view class='test'>
   <view wx:for='{{testArr}}'>

@@ -1,0 +1,57 @@
+{
+	"description": "项目配置文件。",
+	"setting": {
+		"urlCheck": false,
+		"es6": true,
+		"postcss": true,
+		"minified": true
+	},
+	"compileType": "weapp",
+	"libVersion": "1.5.2",
+	"appid": "wx19195688f6290d97",
+	"projectname": "shippingtrack_store",
+	"condition": {
+		"weapp": {
+			"current": 1,
+			"list": [
+				{
+					"id": 0,
+					"name": "test",
+					"pathName": "pages/select/select",
+					"query": "a=哈哈",
+					"scene": 1044,
+					"shareInfo": {}
+				},
+				{
+					"id": 1,
+					"name": "设计新页面专用",
+					"pathName": "pages/center/center",
+					"query": "",
+					"scene": "1001"
+				}
+			]
+		},
+		"search": {
+			"current": -1,
+			"list": [
+				{
+					"name": "test",
+					"pathName": "",
+					"title": "",
+					"cacheKey": ""
+				}
+			]
+		},
+		"conversation": {
+			"current": 0,
+			"list": [
+				{
+					"name": "test",
+					"query": "",
+					"boxQI": "",
+					"service": {}
+				}
+			]
+		}
+	}
+}
