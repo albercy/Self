@@ -19,8 +19,15 @@ page {
   margin-top: 10rpx;
   padding-top: 10rpx;
   border-top:1px dotted #ccc;
+}
+
+.fromTo .message{
   display: flex;
-  flex-direction: column;
+  justify-content: space-between;
+}
+
+.fromTo .down{
+  margin-top: 20rpx;
 }
 
 .logistics-content {
@@ -41,7 +48,6 @@ page {
 
 .logistics-list text:last-child {
   font-size: 31rpx;
-  text-indent: 15rpx;
 }
 
 .products-content {

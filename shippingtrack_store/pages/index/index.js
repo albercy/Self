@@ -76,13 +76,13 @@ Page({
   toDetail: function(e){
     //console.log()
     var detailIdx = e.currentTarget.dataset.pidx
-    var detailData = {
+    var idData = {
       orgId: packageData.orgId,
       bizCenterId: packageData[detailIdx].bizCenterId,
       parcelCode: packageData[detailIdx].parcelCode
     }
     wx.navigateTo({
-      url: '../packageDetail/packageDetail?detailData=' + JSON.stringify(detailData),
+      url: '../packageDetail/packageDetail?idData=' + JSON.stringify(idData),
     })
   }
 })

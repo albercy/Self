@@ -1,10 +1,5 @@
-<view class='select'>
-  <text>已揽收</text>
-  <text>配送中</text>
-  <text>已收货</text>
-  <text>已延迟</text>
-</view>
 <view class='search'>
+  <picker value='{{stateIdx}}' range='{{stateArr}}' bindchange='stateChange'>{{stateArr[stateIdx]}}</picker>
   <input type='text' placeholder='请输入订单号' />
   <label>搜索</label>
 </view>

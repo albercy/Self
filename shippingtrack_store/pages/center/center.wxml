@@ -4,7 +4,9 @@
   <text wx:if='{{nextShow}}' bindtap='goPage' id='next'>{{next}}</text>
 </view>
 <view>
-  <picker mode='multiSelector' bindchange='multiChange' value='{{}}'></picker>
+  <picker bindchange='pickerChange' value='{{pickerIdx}}' range='{{pickerArr}}'>
+    {{pickerArr[pickerIdx]}}
+  </picker>
 </view>
 <view class='test'>
   <view wx:for='{{testArr}}'>

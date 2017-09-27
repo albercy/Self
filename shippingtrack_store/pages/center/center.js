@@ -11,7 +11,9 @@ Page({
     changeTxt: '全部',
     pageArr: [1, 2, 3],
     dropArr: ['aaa','bbb','ccc'],
-    testArr: [{bArr: ['111', '222', '333']}]
+    testArr: [{bArr: ['111', '222', '333']}],
+    pickerArr: ['aa','bb','cc'],
+    pickerIdx: 0
   },
   onLoad: function (options) {
     var that = this
@@ -41,7 +43,7 @@ Page({
         i = e-3
       }
       for(i; i<=(e+2<pageCount?e+2:pageCount); i++){
-        console.log(i)
+        //console.log(i)
         pageArr.push(i)
       }
       that.setData({
@@ -58,7 +60,7 @@ Page({
         lastShow: true
       })
     }
-    if(e==3){
+    if(e<=3){
       that.setData({
         lastShow: false
       })
@@ -68,7 +70,7 @@ Page({
         nextShow: true
       })
     }
-    if(e==pageCount-2){
+    if(e>=pageCount-2){
       that.setData({
         nextShow: false
       })
@@ -102,6 +104,12 @@ Page({
       changeTxt: e.currentTarget.dataset.ctxt,
       dropArr: dropArr,
       dropShow: false
+    })
+  },
+  pickerChange: function (e){
+    console.log(e.detail.value)
+    this.setData({
+      pickerIdx: e.detail.value
     })
   }
 })

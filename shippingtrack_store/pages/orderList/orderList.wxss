@@ -21,6 +21,10 @@ page {
   margin: 25rpx 0 35rpx;
 }
 
+.search picker{
+  padding: 3px;
+}
+
 .search input{
   border-bottom:1px solid #676767;
 }

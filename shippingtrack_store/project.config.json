@@ -8,11 +8,11 @@
 	},
 	"compileType": "weapp",
 	"libVersion": "1.5.2",
-	"appid": "wx19195688f6290d97",
+	"appid": "wxe39115c6041ecfc5",
 	"projectname": "shippingtrack_store",
 	"condition": {
 		"weapp": {
-			"current": 1,
+			"current": -1,
 			"list": [
 				{
 					"id": 0,

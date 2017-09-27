@@ -7,7 +7,9 @@ var pageList = 0
 
 Page({
   data: {
-    packageShow: false
+    packageShow: false,
+    stateArr: ['全　部', '已揽收', '配送中', '已收货','已延迟'],
+    stateIdx: 0
   },
   onLoad: function (options) {
     //console.log(options)
@@ -62,6 +64,11 @@ Page({
       that.setData({
         orderArr: val
       })
+    })
+  },
+  stateChange: function (e){
+    this.setData({
+      stateIdx: e.detail.value
     })
   }
 })
