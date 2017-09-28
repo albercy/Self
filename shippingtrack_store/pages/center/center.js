@@ -2,6 +2,7 @@ var pageCount = 5
 var pageIndex = 1
 var pageArr = []
 var dropArr = ['aaa', 'bbb', 'ccc']
+var md5 = require('../../utils/md5')
 
 Page({
   data: {

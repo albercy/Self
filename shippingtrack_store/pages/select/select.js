@@ -18,7 +18,7 @@ Page({
     var getOrg = 'getOrgs'
     if (options.page != 2) {
       httpApi.getHttp(getOrg, function (callback) {
-        //console.log(callback.results)
+        console.log(callback.results)
         relArr = callback.results
         if (callback.success) {
           for (var i = 0; i < callback.results.length; i++) {
@@ -42,7 +42,7 @@ Page({
         title: '选择供应商',
       })
       httpApi.getHttp(getRel, function (callback) {
-        //console.log(callback.results)
+        console.log(callback.results)
         orgArr = callback.results
         for (var i = 0; i < callback.results.length; i++) {
           selectArr.push(callback.results[i].orgName)

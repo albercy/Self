@@ -4,16 +4,16 @@
     <text>发件机构  {{orgName}}</text>
     <text>备注  开具发票</text>
     <view class='fromTo'>
-        <view class='message up'>
-          <text>卖家 {{sender}}</text>
-          <text>地址 {{fromAddress}}</text>
-        </view>
-        <view>联系电话 {{senderPhone}}</view>
-        <view class='message down'>
-          <text>买家 {{receiver}}</text>
-          <text>地址 {{toAddress}}</text>
-        </view>
-        <view>联系电话 {{receiverPhone}}</view>
+      <view class='message up'>
+        <text>卖家 {{sender}}</text>
+        <text>地址 {{fromAddress}}</text>
+      </view>
+      <view>联系电话 {{senderPhone}}</view>
+      <view class='message down'>
+        <text>买家 {{receiver}}</text>
+        <text>地址 {{toAddress}}</text>
+      </view>
+      <view>联系电话 {{receiverPhone}}</view>
     </view>
   </view>
   <view class="logistics-content">
@@ -23,15 +23,12 @@
     </view>
   </view>
   <view class='products-content'>
-      <view class='products-list' bindtap='testMap'>
-          <view>
-              <text>USB外接百兆网卡</text>
-              <text>￥39</text>
-          </view>
-          <view>
-              <text>sku</text>
-              <text>x2</text>
-          </view>
+    <view>商品信息</view>
+    <view class='products-list' bindtap='testMap'>
+      <view class='product-item' wx:for='{{productArr}}'>
+        <view>品名 {{item.skuLabel}}</view>
+        <view>数量 {{item.amount}}</view>
       </view>
+    </view>
   </view>
 </view>

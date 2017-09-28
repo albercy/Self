@@ -20,7 +20,7 @@ Page({
       var getOrder = 'getERPSellBillsForRelOrgId'
       var orderData = idData
       orderData.start = '1809'
-      console.log(orderData)
+      //console.log(orderData)
       httpApi.getHttp(getOrder, function (callback) {
         //console.log(callback)
         if (callback.success) {

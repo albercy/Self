@@ -44,6 +44,7 @@ Page({
         method: 'GET',
         data: paramer,
         success: function (res) {
+          //console.log(res.header)
           closeLoading()
           if(res.data.success){
             var cookie = { 'Cookie': '_serviceId=' + res.data._serviceId }

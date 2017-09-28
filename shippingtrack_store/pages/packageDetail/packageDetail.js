@@ -25,6 +25,11 @@ Page({
       httpApi.getHttp(getDetails,function(callback){
         console.log(callback)
         that.setData(callback.results[0])
+        if(callback.results[0].parcelItems.length > 0){
+          that.setData({
+            productArr: callback.results[0].parcelItems
+          })
+        }
       },1,idData)
     })
   }

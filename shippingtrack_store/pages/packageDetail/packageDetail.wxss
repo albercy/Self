@@ -52,13 +52,16 @@ page {
 
 .products-content {
   border-top: 1px solid #676767;
-}
-
-.products-list {
   padding: 10rpx 30rpx;
 }
 
-.products-list view {
-  display: flex;
-  justify-content: space-between;
+.products-list {
+  margin-top: 20rpx;
+}
+.product-item{
+  border-bottom: 1px dotted #ccc;
+  line-height: 60rpx;
+}
+.product-item:last-child{
+  border: none;
 }
