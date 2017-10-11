@@ -16,7 +16,11 @@ Page({
 
     var getRel = 'getRelStores'
     var getOrg = 'getOrgs'
+    
     if (options.page != 2) {
+      wx.setNavigationBarTitle({
+        title: '选择机构',
+      })
       httpApi.getHttp(getOrg, function (callback) {
         console.log(callback.results)
         relArr = callback.results
@@ -27,8 +31,6 @@ Page({
           that.setData({ selectArr: selectArr })
 
           if (callback.results.length == 1 && !options.noSkip) {
-            // idList.relOrgId = callback.results[0].orgId
-            // idList.relOrgName = callback.results[0].orgName
             wx.redirectTo({
               url: '../select/select?page=2',
             })
@@ -42,7 +44,7 @@ Page({
         title: '选择供应商',
       })
       httpApi.getHttp(getRel, function (callback) {
-        console.log(callback.results)
+        console.log(callback)
         orgArr = callback.results
         for (var i = 0; i < callback.results.length; i++) {
           selectArr.push(callback.results[i].orgName)
@@ -60,7 +62,7 @@ Page({
     var idxNum = parseInt(e.currentTarget.id)
     if (page == 1) {
       relIdx = idxNum
-      wx.redirectTo({
+      wx.navigateTo({
         url: '../select/select?page=2',
       })
     }

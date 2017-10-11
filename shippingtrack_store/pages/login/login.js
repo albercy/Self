@@ -41,6 +41,7 @@ Page({
       paramer.password = md5.md5(paramer.password)
       wx.request({
         url: 'https://www.yr600.com/fish/login',
+        //url: 'http://bh.eheres.org',
         method: 'GET',
         data: paramer,
         success: function (res) {
@@ -51,7 +52,7 @@ Page({
             wx.setStorageSync('userName', paramer.userName)
             httpApi.cookieListener.saveCookie(cookie)
             wx.redirectTo({
-              url: '../select/select',
+              url: '../select/select?page=1',
             })
           }
           else{

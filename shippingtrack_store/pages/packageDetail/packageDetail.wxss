@@ -15,6 +15,11 @@ page {
   flex-direction: column;
 }
 
+.title-down{
+  display: flex;
+  justify-content: space-between;
+}
+
 .fromTo {
   margin-top: 10rpx;
   padding-top: 10rpx;
@@ -55,7 +60,7 @@ page {
   padding: 10rpx 30rpx;
 }
 
-.products-list {
+.products-list,.noProduct{
   margin-top: 20rpx;
 }
 .product-item{
@@ -64,4 +69,7 @@ page {
 }
 .product-item:last-child{
   border: none;
+}
+.noProduct{
+  text-align: center;
 }

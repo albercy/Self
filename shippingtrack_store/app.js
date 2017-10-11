@@ -1,7 +1,8 @@
 //app.js
 App({
   data: {
-    domainName: 'https://www.yr600.com'
+    //domainName: 'https://www.yr600.com'
+    domainName: 'http://bh.eheres.org'
   },
   onLaunch: function () {
     //调用API从本地缓存中获取数据

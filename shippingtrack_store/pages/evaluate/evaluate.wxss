@@ -34,7 +34,9 @@
 }
 
 .evaluate-submit button{
+  width: 90%;
   font-size: 32rpx;
-  background: #fff;
+  background: #f8f8f8;
   color: #EE6A50;
+  border: 1px solid #f0f0f0;
 }

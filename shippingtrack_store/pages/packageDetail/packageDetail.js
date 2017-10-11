@@ -1,11 +1,13 @@
-var mLocation = new Object()
+var idData = new Object()
 var httpApi = require('../../utils/httpApi')
 
 Page({
-  data: {},
+  data: {
+    hasMark: false
+  },
   onLoad: function (options) {
     var that = this
-    var idData = JSON.parse(options.idData)
+    idData = JSON.parse(options.idData)
     console.log(idData)
     var getTracks = 'getTmsParcelTracks'
     var getDetails = 'getTmsParcelDetail'
@@ -25,12 +27,26 @@ Page({
       httpApi.getHttp(getDetails,function(callback){
         console.log(callback)
         that.setData(callback.results[0])
+        // that.setData({
+        //   hasMark: !callback.results[0].hasMark
+        // })
         if(callback.results[0].parcelItems.length > 0){
           that.setData({
+            productShow: true,
             productArr: callback.results[0].parcelItems
           })
         }
+        else{
+          that.setData({
+            productShow: false
+          })
+        }
       },1,idData)
+    })
+  },
+  toEvaluate: function(){
+    wx.navigateTo({
+      url: '../evaluate/evaluate?idData=' + JSON.stringify(idData)
     })
   }
 })

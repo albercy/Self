@@ -4,10 +4,11 @@
     <text>满意请给5星哦</text>
   </view>
   <view class="evaluate-select">
-    <view class="select" wx:for="{{selectArr}}" wx:for-item="selectTitle">
-      <view>{{selectTitle}}</view>
+    <view class="select" wx:for="{{selectArr}}">
+      <view>{{item.selectTitle}}</view>
       <view class="classname">
-        <image wx:for="{{starArr}}" src="../images/star_{{item}}.png" bindtap="imgClick" id="{{index}}" class="star"></image>
+        <image wx:for="{{item.starArr}}" wx:for-index='sIdx' wx:for-item='sItem' 
+        src="../images/star_{{sItem}}.png" bindtap="imgClick" id="{{sIdx}}" class="star" data-sIdx='{{index}}'></image>
       </view>
     </view>
   </view>
@@ -15,6 +16,6 @@
     <textarea placeholder="{{tip}}" />
   </view>
   <view class="evaluate-submit">
-    <button>提交</button>
+    <button bindtap='markSubmit'>提交</button>
   </view>
 </view>
