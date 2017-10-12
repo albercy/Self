@@ -21,16 +21,16 @@ page {
   margin: 25rpx 0 35rpx;
 }
 
-.search picker{
+.search picker {
   padding: 3px;
 }
 
-.search input{
-  border-bottom:1px solid #676767;
+.search input {
+  border-bottom: 1px solid #676767;
 }
 
-.search label{
-  padding:10rpx 20rpx;
+.search label {
+  padding: 10rpx 20rpx;
 }
 
 .order-content {
@@ -60,6 +60,22 @@ page {
   flex-direction: column;
 }
 
-.package-none{
+.package-none {
   text-align: right;
+}
+
+.page {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.page text {
+  padding: 5rpx 15rpx;
+  border: 1px solid #ccc;
+  margin-left: -1px;
+}
+
+.page .curr {
+  color: #f00;
 }

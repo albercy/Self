@@ -1,5 +1,5 @@
 <view class='search'>
-  <picker value='{{stateIdx}}' range='{{stateArr}}' bindchange='stateChange'>{{stateArr[stateIdx]}}</picker>
+  <!-- <picker value='{{stateIdx}}' range='{{stateArr}}' bindchange='stateChange'>{{stateArr[stateIdx]}}</picker> -->
   <input type='text' placeholder='请输入订单号' />
   <label>搜索</label>
 </view>
@@ -28,4 +28,7 @@
   </view>
 </view>
 <view class='page'>
+  <text wx:if='{{lastShow}}' bindtap='goPage' id='last'>{{last}}</text>
+  <text wx:for='{{pageArr}}' bindtap='numGoPage' class='page-num {{(item == isSelect ) ? "curr":""}}' id='{{item}}'>{{item}}</text>
+  <text wx:if='{{nextShow}}' bindtap='goPage' id='next'>{{next}}</text>
 </view>
