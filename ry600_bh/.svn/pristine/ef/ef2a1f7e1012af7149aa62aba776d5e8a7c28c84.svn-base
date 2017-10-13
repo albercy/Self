@@ -1,0 +1,68 @@
+/**index.wxss**/
+page{
+  background-color: #FFF;
+}
+.login{
+  width: 562rpx;
+  margin: 0 auto;
+  font-size: 28rpx;
+  color: #555;
+}
+.logo_box{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 100rpx auto 80rpx;
+}
+.logo{
+  width: 200rpx;
+}
+.tip_box{
+  height: 50rpx;
+  text-align: center;
+}
+.tip{
+  line-height: 50rpx;
+  font-size: 24rpx;
+  color: #F50;
+}
+.input_field{
+  height: 90rpx;
+  width: 100%;
+  margin: 20rpx auto;
+  position: relative;
+  border-bottom: 2rpx solid #888;
+}
+.input{
+  float: left;
+  width: 390rpx;
+  margin: 30rpx 0 0 70rpx;
+  border: none;
+  height: 60rpx;
+  font-size: 28rpx;
+  color: #888;
+}
+.btn{
+  height: 90rpx;
+  line-height: 90rpx;
+  font-size: 34rpx;
+  margin: 36rpx 0;
+}
+.forget_box{
+  text-align: right;
+}
+.forget{
+  color: #333;
+  font-size: 24rpx;
+}
+.version_box{
+  position: fixed;
+  bottom: 40rpx;
+  left: 0;
+  width: 100%;
+  text-align: center;
+}
+.version{
+  font-size: 22rpx;
+  color: #BBB;
+}

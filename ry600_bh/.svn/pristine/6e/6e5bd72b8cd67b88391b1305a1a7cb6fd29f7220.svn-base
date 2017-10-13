@@ -1,0 +1,59 @@
+{
+  "pages": [
+    "pages/login/login",
+    "pages/homePage/home/home",
+    "pages/homePage/showcase/showcase",
+    "pages/homePage/shopcart/shopcart",
+    "pages/promotion/bulk/bulkList/bulkList",
+    "pages/homePage/account/account",
+    "pages/promotion/bargain/bargain",
+    "pages/promotion/poster/poster",
+    "pages/promotion/promotionList/promotionList",
+    "pages/promotion/bulk/bulkItem/bulkItem"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#F50",
+    "navigationBarTitleText": "荣药在线",
+    "navigationBarTextStyle": "white",
+    "backgroundColor": "EEE"
+  },
+  "tabBar": {
+    "color": "#666",
+    "selectedColor": "#F50",
+    "backgroundColor": "#E8E8E8",
+    "borderStyle": "white",
+    "list": [
+      {
+        "pagePath": "pages/homePage/home/home",
+        "text": "首页",
+        "iconPath": "images/home.png",
+        "selectedIconPath": "images/home_hover.png"
+      },
+      {
+        "pagePath": "pages/homePage/showcase/showcase",
+        "text": "分类",
+        "iconPath": "images/showcase.png",
+        "selectedIconPath": "images/showcase_hover.png"
+      },
+      {
+        "pagePath": "pages/homePage/shopcart/shopcart",
+        "text": "购物车",
+        "iconPath": "images/shopcart.png",
+        "selectedIconPath": "images/shopcart.png"
+      },
+      {
+        "pagePath": "pages/promotion/bulk/bulkList/bulkList",
+        "text": "抢购",
+        "iconPath": "images/bulk.png",
+        "selectedIconPath": "images/bulk_hover.png"
+      },
+      {
+        "pagePath": "pages/homePage/account/account",
+        "text": "账户",
+        "iconPath": "images/account.png",
+        "selectedIconPath": "images/account_hover.png"
+      }
+    ]
+  }
+}

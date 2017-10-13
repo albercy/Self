@@ -1,0 +1,34 @@
+{
+	"description": "项目配置文件。",
+	"setting": {
+		"urlCheck": false,
+		"es6": true,
+		"postcss": true,
+		"minified": true
+	},
+	"compileType": "weapp",
+	"libVersion": "1.5.4",
+	"appid": "wx812f52591fe47137",
+	"projectname": "%E8%8D%A3%E8%8D%AF%E5%9C%A8%E7%BA%BF",
+	"condition": {
+		"weapp": {
+			"current": 0,
+			"list": [
+				{
+					"id": 0,
+					"name": "测试新页面专用",
+					"pathName": "pages/select/allStores/allStores",
+					"query": ""
+				}
+			]
+		},
+		"search": {
+			"current": -1,
+			"list": []
+		},
+		"conversation": {
+			"current": -1,
+			"list": []
+		}
+	}
+}

@@ -1,0 +1,10 @@
+<!--pages/homePage/account/orderList/orderList.wxml-->
+<view class='order_list'>
+  <view class='tabs'>
+    <view class='tab'><text class='tab_crr'>全部订单</text></view>
+    <view class='tab'><text>待付款</text></view>
+    <view class='tab'><text>待收货</text></view>
+    <view class='tab'><text>已完成</text></view>
+    <view class='tab'><text>驳回/取消</text></view>
+  </view>
+</view>

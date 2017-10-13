@@ -1,0 +1,13 @@
+<!--pages/loginPage/forget/forget.wxml-->
+<view class='forget'>
+  <view class='title_box'><text class='title'>{{title}}</text></view>
+
+  <view class='input_field'>
+    <input placeholder='用户名、手机号、邮箱' placeholder-class='placeholder' class='username' bindinput='userInput'></input>
+  </view>
+  <view class='input_field'>
+    <input class='check_input' placeholder='输入验证码' placeholder-class='placeholder' bindinput='checkInput'></input>
+    <image src='{{checkImg}}' class='check_img'></image>
+  </view>
+  <view class='btn_field'><button class='btn' bindtap='doCheck'>验证身份</button></view>
+</view>

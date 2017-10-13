@@ -1,0 +1,3 @@
+<view class="account">
+  <view class='title_box'><text class='title'>{{title}}</text></view>
+</view>

@@ -1,0 +1,56 @@
+/* pages/account/account.wxss */
+.account_header{
+  background-color: #F50;
+  color: #FFF;
+  height: 116rpx;
+  padding: 24rpx 30rpx 0;
+}
+.logo_ry{
+  width: 180rpx;
+  height: 32rpx;
+  display: block;
+  float: left;
+  margin-right: 12rpx;
+}
+.store_crr{
+  font-size: 22rpx;
+  line-height: 32rpx;
+  background-color: #FFF;
+  color: #F50;
+  padding: 0 10rpx;
+  border-radius: 6rpx;
+  display: block;
+  float: left;
+}
+.org_crr{
+  float: right;
+  font-size: 24rpx; 
+  padding-right: 28rpx;
+}
+.info_block{
+  width: 750rpx;
+  height: 230rpx;
+  position: relative;
+}
+.panel_box{
+  background-color: rgba(255,255,255,0.9);
+  width: 645rpx;
+  margin: 0 auto;
+  box-shadow: 0 20rpx 20rpx -20rpx #CCC;
+}
+.info_box{
+  position: absolute;
+  top: -20rpx;
+  left: 50%;
+  margin-left: -322.5rpx;
+  display: flex;
+  flex-direction: row;
+  padding: 30rpx 0;
+}
+.user_icon{
+  width: 160rpx;
+  height: 160rpx;
+  border-radius: 50%;
+  border: 4rpx solid #CCC;
+  margin: 0 40rpx 0 66rpx;
+}

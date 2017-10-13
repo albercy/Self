@@ -1,0 +1,23 @@
+/**app.wxss**/
+page{
+  background-color: #F1F2F6;
+  font-size: 24rpx;
+  color: #666;
+}
+.container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 200rpx 0;
+  box-sizing: border-box;
+} 
+.placeholder{
+  color: #969696;
+  font-size: 28rpx;
+}
+.btn{
+  background-color: #F50;
+  color: #FFF;
+}

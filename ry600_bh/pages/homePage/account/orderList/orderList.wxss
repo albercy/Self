@@ -1,0 +1,18 @@
+/* pages/homePage/account/orderList/orderList.wxss */
+.tabs{
+  height: 68rpx;
+  background-color: #FFF;
+  display: flex;
+  flex-direction: row;
+  line-height: 68rpx;
+}
+.tab{
+  flex: 1;
+  text-align: center;
+}
+.tab_crr{
+  color: #F50;
+  border-bottom: 4rpx solid #F50;
+  height: 64rpx;
+  display: inline-block;
+}

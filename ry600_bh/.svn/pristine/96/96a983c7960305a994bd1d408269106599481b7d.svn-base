@@ -1,0 +1,22 @@
+<view class="account">
+  <view class='account_header'>
+    <image class='logo_ry' src='/images/logo_ry.png'></image>
+    <text class='store_crr'>{{storeCrr}}</text>
+    <text class='org_crr'>当前机构：{{orgCrr}}</text>
+  </view>
+  <view class='info_block'>
+    <view class='panel_box info_box'>
+      <image class='user_icon' src="{{userIcon}}"></image>
+      <view class='info_detail'>
+        <text>请完善个人信息</text>
+        <text>{{userName}}</text>
+      </view>
+    </view>
+  </view>
+  <view class='panel_box'>
+    <view class='panel_title'>
+      <text>我的订单</text>
+      <text>全部订单</text>
+    </view>
+  </view>
+</view>

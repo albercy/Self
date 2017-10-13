@@ -1,0 +1,67 @@
+/**index.wxss**/
+.login{
+  font-size: 28rpx;
+  color: #555;
+}
+.logo_box{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 100rpx auto 80rpx;
+}
+.logo_des{
+  font-size: 24rpx;
+  color: #999;
+  margin-top: 20rpx;
+}
+.logo{
+  width: 200rpx;
+}
+.tip_box{
+  height: 50rpx;
+  text-align: center;
+}
+.tip{
+  line-height: 50rpx;
+  font-size: 24rpx;
+  color: #F50;
+}
+.input_field{
+  height: 90rpx;
+  width: 600rpx;
+  margin: 20rpx auto;
+  position: relative;
+  border: 2rpx solid #DDD;
+}
+.input_name{
+  width: 180rpx;
+  float: left;
+  line-height: 90rpx;
+  height: 90rpx;
+  text-align: center;
+}
+.input{
+  float: left;
+  width: 420rpx;
+  border: none;
+  background-color: #FFF;
+  height: 90rpx;
+}
+.login_btn{
+  width: 600rpx;
+  height: 90rpx;
+  line-height: 90rpx;
+  border: 2rpx solid #F50;
+  background-color: #F50;
+  color: #FFF;
+}
+.version_box{
+  position: fixed;
+  bottom: 40rpx;
+  width: 100%;
+  text-align: center;
+}
+.version{
+  font-size: 22rpx;
+  color: #CCC;
+}

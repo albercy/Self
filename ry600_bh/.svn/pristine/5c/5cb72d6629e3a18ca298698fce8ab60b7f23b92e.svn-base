@@ -1,0 +1,41 @@
+.quickEnter{
+    padding: 20rpx;
+    display: flex;
+    color: #fff;
+    font-size: 35rpx;
+}
+.enterArea{
+    width: 50%;
+}
+.enterArea .icon{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 4%;
+}
+.quickEnter .left .icon{
+    width: 345rpx;
+    height: 345rpx;
+}
+.quickEnter .left .quickBill{
+    background-color: #f08300;
+}
+.quickEnter .left .showcase{
+    margin-top: 15rpx;
+    background-color: #00a0ea;
+}
+.quickEnter .right .icon{
+    width: 345rpx;
+    height: 225rpx;
+}
+.quickEnter .right .shopCart{
+    background-color: #28cde3;
+}
+.quickEnter .right .myAccount{
+    margin-top: 15rpx;
+    background-color: #8fc320;
+}
+.quickEnter .right .scanBill{
+    margin-top: 15rpx;
+    background-color: #fe4db7;
+}
