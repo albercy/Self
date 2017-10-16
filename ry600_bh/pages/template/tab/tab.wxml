@@ -1,4 +1,4 @@
-<!--pages/homePage/account/orderList/orderList.wxml-->
+<!--pages/template/tab/tab.wxml-->
 <view class='order_list'>
   <view class='tabs'>
     <view class='tab' wx:for="{{tabs}}" wx:for-item="tab" wx:for-index="index" data-index='{{index}}' bindtap='changeTab'>

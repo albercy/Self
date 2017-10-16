@@ -35,7 +35,7 @@
 				{
 					"id": 3,
 					"name": "测试新页面专用",
-					"pathName": "pages/homePage/showcase/showcase",
+					"pathName": "pages/template/searchBar/searchBar",
 					"query": ""
 				}
 			]

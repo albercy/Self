@@ -7,7 +7,6 @@ App({
     wx.setStorageSync('logs', logs)
   },
   globalData: {
-    domainName: 'http://www.ry600.com',
     userInfo: null,
     version: '0.0.7'
   }
