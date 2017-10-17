@@ -1,0 +1,48 @@
+var httpUrl = getApp().globalData.domainName + '/jsonaction/websiteaction.action/'
+var mHeader = ''
+
+function loginHttp(options, callback) {
+  wx.request({
+    url: 'http://login.ry600.com/userCenterLogin.jsp',
+    data: options,
+    method: 'GET',
+    success: function (res) {
+      callback(res.data)
+    }
+  })
+}
+
+function saveHeader(e) {
+  mHeader = e
+}
+
+function getHttp(method, options, callback) {
+  wx.request({
+    url: httpUrl + method,
+    header: mHeader,
+    data: options,
+    method: 'GET',
+    success: function (res) {
+      callback(res.data)
+    }
+  })
+}
+
+function postHttp(method, options, callback) {
+  wx.request({
+    url: httpUrl + method,
+    data: options,
+    method: 'POST',
+    header: { "content-type": "application/x-www-form-urlencoded" },
+    success: function (res) {
+      callback(res.data)
+    }
+  })
+}
+
+module.exports = {
+  loginHttp: loginHttp,
+  saveHeader: saveHeader,
+  getHttp: getHttp,
+  postHttp: postHttp
+}

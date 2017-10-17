@@ -1,12 +1,13 @@
-<template name='app_header'>
-  <view class='app_header'>
-    <view class='header-left'>
+<template name='org_message'>
+  <view class='org_message'>
+    <view class='message-left'>
       <image class='logo_ry' src='/images/logo_ry.png'></image>
       <text class='store_crr'>{{storeCrr}}</text>
     </view>
     <text class='org_crr'>当前机构：{{orgCrr}}</text>
   </view>
 </template>
+
 <template name='search_bar'>
   <view class='searchBar'>
     <view class='search-scan'>
