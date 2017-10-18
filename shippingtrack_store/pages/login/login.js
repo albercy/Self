@@ -4,11 +4,11 @@ var httpApi = require('../../utils/httpApi')
 Page({
   data: {
     btnLoad: false,
-    btnPlain: false,
-    password: 123456
+    btnPlain: false
   },
   onLoad: function (options) {
     var that = this
+
     if (wx.getStorageSync('userName') != null) {
       that.setData({
         username: wx.getStorageSync('userName')
@@ -39,29 +39,19 @@ Page({
     }
     else {
       paramer.password = md5.md5(paramer.password)
-      wx.request({
-        url: 'https://www.yr600.com/fish/login',
-        //url: 'http://bh.eheres.org',
-        method: 'GET',
-        data: paramer,
-        success: function (res) {
-          //console.log(res.header)
-          closeLoading()
-          if(res.data.success){
-            var cookie = { 'Cookie': '_serviceId=' + res.data._serviceId }
-            wx.setStorageSync('userName', paramer.userName)
-            httpApi.cookieListener.saveCookie(cookie)
-            wx.redirectTo({
-              url: '../select/select?page=1',
-            })
-          }
-          else{
-            wx.showModal({
-              title: '提示',
-              content: '帐号或者密码错误，请重新输入',
-              showCancel: false
-            })
-          }
+      httpApi.loginHttp(paramer, function (callback) {
+        closeLoading()
+        if (callback.success) {
+          wx.redirectTo({
+            url: '../select/select?page=1'
+          })
+        }
+        else {
+          wx.showModal({
+            title: '提示',
+            content: '帐号或者密码错误，请重新输入',
+            showCancel: false
+          })
         }
       })
     }

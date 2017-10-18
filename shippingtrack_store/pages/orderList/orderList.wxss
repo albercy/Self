@@ -18,7 +18,6 @@ page {
 
 .search {
   display: flex;
-  margin: 25rpx 0 35rpx;
 }
 
 .search picker {

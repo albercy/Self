@@ -1,6 +1,6 @@
 /**app.wxss**/
 page{
-  height: 100%;
+  font-size: 30rpx;
   font-family: "PingFang SC", "Hiragino Sans GB", "Heiti SC", "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif;
 }
 input{

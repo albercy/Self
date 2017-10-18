@@ -1,16 +1,28 @@
-var httpUrl = getApp().getDomainName() + '/jsonaction/websiteaction.action?action='
+var appData = getApp().globalData
+var httpUrl = appData.domainName + '/jsonaction/websiteaction.action?action='
+
 var vsTms = 'VSTms.'
 var vsShop = 'VSShop.'
 var vsERP = 'VSERPSellBill.'
-var cookie = ''
+var _header
 
-var cookieListener = {
-  saveCookie: function (options){
-    cookie = options
-  },
-  getCookie: function (){
-    return cookie
-  }
+function loginHttp(options,callback){
+  wx.request({
+    url: 'https://www.yr600.com/fish/login',
+    data: options,
+    success: function (res){
+      if (res.data.success){
+        wx.setStorageSync('userName', options.userName)
+        _header = { 'Cookie': '_serviceId=' + res.data._serviceId }
+        saveData()
+      }
+      callback(res.data)
+      
+    },
+    fail: function (){
+      callback(null)
+    }
+  })
 }
 
 function getHttp(method, callback, isOrder, options) {
@@ -26,11 +38,14 @@ function getHttp(method, callback, isOrder, options) {
   }
   wx.request({
     url: mUrl + method,
-    header: cookie,
+    header: _header,
     data: options,
     method: 'GET',
     success: function (res) {
       callback(res.data)
+    },
+    fail: function (){
+      callback(null)
     }
   })
 }
@@ -53,11 +68,35 @@ function postHttp(method, options, callback, isOrder) {
     header: { "content-type": "application/x-www-form-urlencoded" },
     success: function (res) {
       callback(res.data)
+    },
+    fail: function (){
+      callback(null)
     }
   })
 }
+
+function saveData (){
+  var getRel = 'getRelStores'
+  var getOrg = 'getOrgs'
+
+  var _data = new Object()
+
+  var httpPromise = new Promise(function(resolve,reject){
+    getHttp(getRel, function (callback) {
+      console.log(callback)
+      _data.orgId = callback.results[0]
+      
+      resolve(callback)
+    }, -1)
+  })
+  httpPromise.then(function(val){
+    getHttp(getOrg,function (callback){
+      console.log(callback)
+    },1)
+  })  
+}
 module.exports = {
-  cookieListener: cookieListener,
+  loginHttp: loginHttp,
   getHttp: getHttp,
   postHttp: postHttp
 }

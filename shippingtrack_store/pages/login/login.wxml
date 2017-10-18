@@ -1,9 +1,16 @@
 <view class="content">
-    <form bindsubmit="loginSubmit">
-        <view class="input-area">
-            <input id="username" name="userName" type="text" placeholder="请输入你的帐号" value="{{username}}" />
-            <input id="password" name="password" type="password" placeholder="请输入你的密码" value="{{password}}" />
-        </view>
-        <button formType="submit" loading="{{btnLoading}}" class="login-btn" loading="{{btnLoad}}" plain="{{btnPlain}}">   登录</button>
-    </form>
+  <image src='/images/logo.png' class='logo'></image>
+  <form bindsubmit="loginSubmit">
+    <view class='input-area'>
+      <view class='area username'>
+        <image src='/images/account.png' class='input-img'></image>
+        <input name="userName" type="text" placeholder="用户名/帐号" value="{{username}}"></input>
+      </view>
+      <view class='area password'>
+        <image src='/images/password.png' class='input-img'></image>
+        <input name="password" type="password" placeholder="密码" value="{{password}}"></input>
+      </view>
+    </view>
+    <button formType="submit" loading="{{btnLoading}}" class="login-btn" loading="{{btnLoad}}" plain="{{btnPlain}}">登 录</button>
+  </form>
 </view>

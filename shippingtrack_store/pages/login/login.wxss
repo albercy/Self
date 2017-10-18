@@ -1,35 +1,34 @@
-page {
-  background-color: #f4f4f4;
-}
-
-.login-img {
+.logo {
   width: 100%;
   height: 350rpx;
 }
 
-.input-area {
-  font-size: 34rpx;
-  margin-top: 50rpx;
-  text-align: left;
-  padding-left: 10%;
-  background: #fff;
-  border-bottom: 1px solid #ddd;
-  border-top: 1px solid #ddd;
+.input-area{
+  margin-top: 60rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
-
-.input-area input {
-  height: 100rpx;
-  line-height: 100rpx;
+.area{
+  width: 550rpx;
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid #ccc;
+  margin-bottom: 30rpx;
 }
-
-#username {
-  border-bottom: 1px solid #ddd;
+.area input{
+  margin-left: 20rpx;
+}
+.input-img{
+  width: 32rpx;
+  height: 32rpx;
 }
 
 .login-btn {
   font-size: 35rpx;
-  width: 500rpx;
-  background-color: #f90;
-  margin-top: 40rpx;
+  width: 550rpx;
+  background-color: #39464e;
+  margin-top: 20rpx;
   color: #fff;
 }
