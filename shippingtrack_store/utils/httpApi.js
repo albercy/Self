@@ -84,14 +84,21 @@ function saveData (){
   var httpPromise = new Promise(function(resolve,reject){
     getHttp(getRel, function (callback) {
       console.log(callback)
-      _data.orgId = callback.results[0]
-      
+      _data.orgId = callback.results[0].storeOrgId
+      _data.bizCenterId = callback.results[0].bizCenterId
+      _data.relOrgName = callback.results[0].orgName
+      if(callback.results.length > 1){
+        _data.orgIdArr = []
+        for(let i=0; i<callback.results.length; i++){
+          _data.orgIdArr[i].push(callback.results[i].orgId)
+        }
+      }
       resolve(callback)
     }, -1)
   })
   httpPromise.then(function(val){
     getHttp(getOrg,function (callback){
-      console.log(callback)
+      //console.log(callback)
     },1)
   })  
 }

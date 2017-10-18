@@ -4,7 +4,8 @@ var httpApi = require('../../utils/httpApi')
 Page({
   data: {
     btnLoad: false,
-    btnPlain: false
+    btnPlain: false,
+    password: '123456'
   },
   onLoad: function (options) {
     var that = this
@@ -42,9 +43,9 @@ Page({
       httpApi.loginHttp(paramer, function (callback) {
         closeLoading()
         if (callback.success) {
-          wx.redirectTo({
-            url: '../select/select?page=1'
-          })
+          // wx.redirectTo({
+          //   url: '../select/select?page=1'
+          // })
         }
         else {
           wx.showModal({
