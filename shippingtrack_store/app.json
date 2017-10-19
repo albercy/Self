@@ -1,6 +1,9 @@
 {
   "pages": [
     "pages/login/login",
+    "pages/homePage/index/index",
+    "pages/homePage/orderList/orderList",
+    "pages/homePage/myAccount/myAccount",
     "pages/index/index",
     "pages/select/select",
     "pages/map/map",
@@ -14,5 +17,27 @@
     "navigationBarBackgroundColor": "#fff",
     "navigationBarTitleText": "WeChat",
     "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "list": [
+      {
+        "pagePath": "pages/homePage/index/index",
+        "text": "首页",
+        "iconPath": "images/home.png",
+        "selectedIconPath": "images/home_select.png"
+      },
+      {
+        "pagePath": "pages/homePage/orderList/orderList",
+        "text": "我的订单",
+        "iconPath": "images/order.png",
+        "selectedIconPath": "images/order_select.png"
+      },
+      {
+        "pagePath": "pages/homePage/myAccount/myAccount",
+        "text": "我的账户",
+        "iconPath": "images/myAccount.png",
+        "selectedIconPath": "images/myAccount_select.png"
+      }
+    ]
   }
 }

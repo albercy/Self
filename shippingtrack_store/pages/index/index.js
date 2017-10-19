@@ -1,7 +1,7 @@
 var httpApi = require('../../utils/httpApi')
 var parcelState = ['已揽收','配送中','已收货','已延迟']
 var packageData = []
-//var idData = []
+var idData = getApp().globalData.msgData
 
 Page({
   data: {},

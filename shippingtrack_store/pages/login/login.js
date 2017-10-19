@@ -43,9 +43,12 @@ Page({
       httpApi.loginHttp(paramer, function (callback) {
         closeLoading()
         if (callback.success) {
-          // wx.redirectTo({
-          //   url: '../select/select?page=1'
-          // })
+          var _data = getApp().globalData.msgData
+          if(!_data.orgIdArr && !_data.relOrgIdArr){
+            wx.switchTab({
+              url: '../homePage/index/index',
+            })
+          }
         }
         else {
           wx.showModal({
