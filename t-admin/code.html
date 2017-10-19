@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script src="utils/jquery.min.js"></script>
+    <style>
+        div {
+            padding: 0 5px;
+            background: #000;
+            color: #fff;
+            text-align: center;
+            margin: 150px auto;
+            width: 88px;
+            height: 30px;
+            letter-spacing: 13px;
+            border: 1px solid #676767;
+            font-size: 20px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <div onclick="aa()">
+        1234
+    </div>
+    <script src="http://pv.sohu.com/cityjson?ie=utf-8"></script>
+    <script>
+        function aa() {
+            console.log(returnCitySN['cip'] + returnCitySN['cname']);
+        }
+        function getCode() {
+            //console.log(IPdata[0])
+            var code = ''
+            for (var i = 0; i < 4; i++) {
+                var mNum = parseInt(Math.random() * 10)
+                //console.log(mNum.toString())
+                code = code + mNum
+            }
+            console.log(code)
+            $('div').text(code)
+        }
+    </script>
+</body>
+
+</html>

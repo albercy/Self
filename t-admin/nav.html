@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>后台管理系统</title>
+    <script src="utils/jquery-3.2.1.min.js"></script>
+    <style>
+        html,
+        body {
+            margin: 0;
+            height: 100%;
+        }
+
+        li {
+            list-style: none;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        .nav {
+            float: left;
+            background: #424F63;
+            width: 13%;
+            height: 100%;
+            font-family: "Helvetica Neue", Helvetica, Arial, "Microsoft Yahei", "Hiragino Sans GB", "Heiti SC", "WenQuanYi Micro Hei", sans-serif;
+        }
+
+        #manager {
+            display: inline-block;
+            margin: 25px 0 0px 15px;
+            padding-left: 30px;
+            color: #64CDA5;
+            font-size: 16px;
+            background: url('image/setting.png') 0 -1px no-repeat;
+            background-size: 24px 24px;
+        }
+
+        #manager i{
+            margin-left: 15px;
+            display: inline-block;
+            width: 15px;
+            height: 15px;
+            background: url('image/up.png') 0 2px no-repeat;
+            background-size: 14px 14px;
+        }
+
+        #drop {
+            line-height: 24px;
+        }
+
+        #drop a {
+            color: #F8f8ff;
+            font-size: 13px;
+            letter-spacing: 1.5px;
+            font-weight: 100;
+        }
+        .content{
+            height: 100%;
+            background: #EFF0F4;
+        }
+        .topNav{
+            width: 100%;
+            height: 30px;
+            background: #fff;
+        }
+        .topNav span:first-child{
+            border-right: 1px solid #eee;
+            display: inline-block;
+            width: 35px;
+            height: 100%;
+            background: url('image/bar.png') 8px 5px no-repeat;
+            background-size: 18px 18px;
+            cursor: pointer;
+        }
+        .topNav .admin{
+            margin-right: 100px;
+            text-align: right;
+            display: inline-block;
+            width: 70px;
+            height: 100%;
+            background: url('image/admin.png') 8px 5px no-repeat;
+            background-size: 18px 18px;
+            float: right;
+            color: #434343;
+            line-height: 27px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="nav">
+        <a href="javascript:void(0);" id="manager">系统管理<i></i></a>
+        <ul id="drop">
+            <li><a href="">关键词过滤</a></li>
+            <li><a href="">用户登录日志</a></li>
+            <li><a href="">访问日志</a></li>
+        </ul>
+    </div>
+    <div class="content">
+        <div class="topNav">
+            <span class="hide"></span>
+            <span class="admin">管理员</span>
+        </div>
+    </div>
+    <script>
+        $('document').ready(function () {
+            var closed = false
+            $('#manager').on('click', function () {
+                if (closed) {
+                    $('#drop').slideDown(800)
+                    setTimeout(function(){
+                        $('#manager i').css("background-image","url(image/up.png)")
+                    },150)
+                }
+                else {
+                    $('#drop').slideUp(500)
+                    setTimeout(function(){
+                        $('#manager i').css("background-image","url(image/down.png)")
+                    },150)
+                }
+                closed = !closed
+            })
+            var navHide = false
+            $('.hide').on('click',function(){
+                $('.nav').animate({width: 'toggle'},'slow')
+            })
+        })
+    </script>
+</body>
+
+</html>

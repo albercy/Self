@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>用户登录日志</title>
+    <script src="utils/jquery.min.js"></script>
+    <style>
+        html,
+        body {
+            margin: 0;
+            height: 100%;
+            background: #EFF0F4;
+            font-family: "Helvetica Neue", Helvetica, Arial, "Microsoft Yahei", "Hiragino Sans GB", "Heiti SC", "WenQuanYi Micro Hei", sans-serif;
+        }
+
+        button {
+            color: #fff;
+            border: 0;
+            padding: 5px 17px;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+
+        .keyword {
+            margin: 0 auto;
+            width: 90%;
+            padding: 10px 8px;
+            background: #fff;
+            border-radius: 6px;
+            color: #7D7979;
+        }
+
+        .search-area {
+            display: inline-block;
+        }
+
+        .search-area input,
+        .del input {
+            border: 1px solid #DCDCDC;
+            height: 24px;
+        }
+
+        .search-area button {
+            background: #47A447;
+        }
+
+        .add {
+            float: right;
+        }
+
+        .add button,
+        .del button {
+            background: #5BC0DE;
+        }
+
+        .list {
+            margin-top: 15px;
+        }
+
+        .list h3 {
+            padding-bottom: 5px;
+            border-bottom: 1px solid #FDFDFD;
+        }
+
+        table {
+            *border-collapse: collapse;
+            border-spacing: 0;
+            width: 100%;
+            text-align: center;
+            font-size: 13px;
+        }
+
+        table th {
+            font-size: 14px;
+            padding: 5px;
+            border-bottom: 1px solid #ddd;
+            font-weight: 600;
+        }
+
+        table td {
+            padding: 8px;
+            border-bottom: 1px solid #E7E7E7;
+        }
+
+        table tr:last-child td {
+            border-bottom: none;
+        }
+
+    </style>
+</head>
+
+<body>
+    <h2>用户登录日志</h2>
+    <div class="keyword search">
+        <div class="search-area">
+            <label for="search">用户帐号：</label>
+            <input type="" name="" value="" placeholder="用户帐号">
+            <label for="time">登录时间：</label>
+            <input type="" name="" value="">
+            <span>To</span>
+            <input type="" name="" value="">    
+            <button type="">提交</button>
+        </div>
+    </div>
+    <div class="keyword list">
+        <h3>登录日志列表</h3>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>序号</th>
+                    <th>用户帐号</th>
+                    <th>IP地址</th>
+                    <th>登录时间</th>
+                </tr>
+            </thead>
+
+            <tr>
+                <td>1</td>
+                <td>ax012b</td>
+                <td>2199.137.154.24</td>
+                <td>2016-05-11 00:29:22</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>hkwuyx</td>
+                <td>113.237.151.112</td>
+                <td>2016-05-11 10:19:18</td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>andy</td>
+                <td>123.221.78.11</td>
+                <td>2016-05-15 23:44:05</td>
+            </tr>
+        </table>
+    </div>
+    <script>
+        $('document').ready(function () {
+            function getCode(){
+                var code = ''
+                for (var i = 0; i < 4; i++) {
+                    var mNum = parseInt(Math.random() * 10)
+                    //console.log(mNum.toString())
+                    code = code + mNum
+                }
+                $('.del span').text(code)
+            }
+            getCode()
+
+            $('.add-btn').on('click', function () {
+                prompt('2333')
+            })
+        })
+    </script>
+</body>
+
+</html>

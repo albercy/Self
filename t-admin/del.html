@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script src="utils/jquery-3.2.1.min.js"></script>
+    <style>
+        html,body,.right,.left{
+            margin: 0;
+            height: 100%;
+        }
+    </style>
+</head>
+<body>
+    <div class="left" style="background: red;width:20%;float:left;"></div>
+    <div class="right" style="background: blue;">
+        <div style="display:inline;">aaa</div>
+        <button type="">Click</button>
+        <span>111</span>
+    </div>
+    <script>
+        $('document').ready(function(){
+            var mWidth = $('.left').width()
+            var hide = false
+            $('li').each(function(){
+                $(this).on('click',function(){
+                    $(this).fadeOut(300,function(){
+                        $(this).remove()
+                    })
+                })
+            })
+            
+            $('button').click(function(){
+                // console.log(mWidth)
+                $('.left').animate({width: 'toggle'},"slow")
+                // if(hide){
+                //     $('.right').animate({width: '-='+mWidth},'slow')
+                // }
+                // else{
+                //     $('.right').animate({width: '+='+mWidth},'slow')
+                // }
+                // hide=!hide
+                // if(!hide)
+                //     $('.left').animate({'width':0},'slow');
+                // else
+                //     $('.left').animate({'width':'20%'},'slow');
+                // hide=!hide;
+            })
+        })
+    </script>
+</body>
+</html>

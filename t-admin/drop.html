@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>下拉列表</title>
+    <script src="utils/jquery.min.js"></script>
+</head>
+
+<body>
+    <ul>
+        <li>First</li>
+        <li>Second</li>
+        <li class="drop">
+            <a href="javascript:void(0);" id="drop">Drop</a>
+            <ul class="dropList">
+                <li>Drop1</li>
+                <li>Drop2</li>
+                <li>Drop3</li>
+            </ul>
+        </li>
+    </ul>
+    <script>
+        $(document).ready(function () {
+            var closed = true
+            $('#drop').on('click',function(){
+                console.log(closed)
+                if (closed) {
+                    $('.dropList').fadeIn(500)
+                    closed = false
+                }
+                else {
+                    $('.dropList').fadeOut(1000)
+                    closed = true
+                }
+            })
+        })
+    </script>
+</body>
+
+</html>

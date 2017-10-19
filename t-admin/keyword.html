@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>关键词搜索</title>
+    <script src="utils/jquery.min.js"></script>
+    <style>
+        html,
+        body {
+            margin: 0;
+            height: 100%;
+            background: #EFF0F4;
+            font-family: "Helvetica Neue", Helvetica, Arial, "Microsoft Yahei", "Hiragino Sans GB", "Heiti SC", "WenQuanYi Micro Hei", sans-serif;
+        }
+
+        button {
+            color: #fff;
+            border: 0;
+            padding: 5px 17px;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+
+        .keyword {
+            margin: 0 auto;
+            width: 90%;
+            padding: 10px 8px;
+            background: #fff;
+            border-radius: 6px;
+            color: #7D7979;
+        }
+
+        .search-area {
+            display: inline-block;
+        }
+
+        .search-area input,
+        .del input {
+            border: 1px solid #DCDCDC;
+            height: 24px;
+        }
+
+        .search-area button {
+            background: #47A447;
+        }
+
+        .add {
+            float: right;
+        }
+
+        .add button,
+        .del button {
+            background: #5BC0DE;
+        }
+
+        .list {
+            margin-top: 15px;
+        }
+
+        .list h3 {
+            padding-bottom: 5px;
+            border-bottom: 1px solid #FDFDFD;
+        }
+
+        table {
+            *border-collapse: collapse;
+            border-spacing: 0;
+            width: 100%;
+            text-align: center;
+            font-size: 13px;
+        }
+
+        table th {
+            font-size: 15px;
+            padding: 5px;
+            border-bottom: 1px solid #ddd;
+            font-weight: 600;
+        }
+
+        table td {
+            padding: 8px;
+            border-bottom: 1px solid #E7E7E7;
+        }
+
+        table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .del {
+            margin-top: 30px;
+        }
+
+        .del span {
+            margin: 0 6px;
+            display: inline-block;
+            padding: 0 5px;
+            background: #000;
+            color: #fff;
+            text-align: center;
+            width: 81px;
+            height: 24px;
+            letter-spacing: 13px;
+            border: 1px solid #676767;
+            font-size: 18px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <h2>关键词过滤</h2>
+    <div class="keyword search">
+        <div class="search-area">
+            <label for="search">关键词：</label>
+            <input type="" name="" value="" placeholder="请输入你要搜索的关键词">
+            <button type="">查询</button>
+        </div>
+        <div class="add">
+            <button class="add-btn">+ 新增关键词</button>
+        </div>
+    </div>
+    <div class="keyword list">
+        <h3>关键词列表</h3>
+
+        <table>
+            <thead>
+                <tr>
+                    <th><input type="checkbox" name="">全选</th>
+                    <th>序号</th>
+                    <th>关键词</th>
+                    <th>创建时间</th>
+                </tr>
+            </thead>
+
+            <tr>
+                <td><input type="checkbox" name=""></td>
+                <td>1</td>
+                <td>色情</td>
+                <td>2016-05-11 00:29:22</td>
+            </tr>
+            <tr>
+                <td><input type="checkbox" name=""></td>
+                <td>2</td>
+                <td>赌博</td>
+                <td>2016-05-11 10:19:18</td>
+            </tr>
+            <tr>
+                <td><input type="checkbox" name=""></td>
+                <td>3</td>
+                <td>共产党</td>
+                <td>2016-05-15 23:44:05</td>
+            </tr>
+        </table>
+        <div class="del">
+            <label for="code">验证码：</label>
+            <input type="" name="" value="">
+            <span>0000</span>
+            <button type="">删除关键词</button>
+        </div>
+    </div>
+    <script>
+        $('document').ready(function () {
+            function getCode(){
+                var code = ''
+                for (var i = 0; i < 4; i++) {
+                    var mNum = parseInt(Math.random() * 10)
+                    //console.log(mNum.toString())
+                    code = code + mNum
+                }
+                $('.del span').text(code)
+            }
+            getCode()
+
+            $('.add-btn').on('click', function () {
+                prompt('2333')
+            })
+
+            $('.del span').on('click', function () {
+                getCode()
+            })
+            
+            $('.del button').on('click',function(){
+                if($('.del input').val() == $('.del span').text()){
+                    alert('删除成功')
+                }
+                else{
+                    alert('验证码错误')
+                    getCode()
+                }
+            })
+        })
+    </script>
+</body>
+
+</html>
