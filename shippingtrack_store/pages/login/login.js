@@ -1,5 +1,5 @@
 var md5 = require('../../utils/md5')
-var httpApi = require('../../utils/httpApi')
+var httpUtil = require('../../utils/httpUtil')
 
 Page({
   data: {
@@ -40,7 +40,7 @@ Page({
     }
     else {
       paramer.password = md5.md5(paramer.password)
-      httpApi.loginHttp(paramer, function (callback) {
+      httpUtil.loginHttp(paramer, function (callback) {
         closeLoading()
         if (callback.success) {
           var _data = getApp().globalData.msgData

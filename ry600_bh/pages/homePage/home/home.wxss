@@ -27,6 +27,7 @@
 
 .quickEnter .left .quickBill {
   background-color: #f08300;
+  background-position: 50% -320rpx;
 }
 
 .quickEnter .left .showcase {

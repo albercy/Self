@@ -1,0 +1,10 @@
+<!--pages/template/slide/slide.wxml-->
+<text>pages/template/slide/slide.wxml</text>
+<view class="container">
+  <!-- <view class='slide_wrap'> -->
+  <view class="touch-item {{isTouchMove ? 'touch-move-active' : ''}}"  bindtouchstart="touchstart" bindtouchmove="touchmove">
+    <view class="content">8888</view>
+    <view class="del" catchtap="del">删除</view>
+    </view>
+  <!-- </view> -->
+</view>

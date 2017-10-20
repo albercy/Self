@@ -1,0 +1,50 @@
+<!--pages/shopcart/shopcart.wxml-->
+<view class='shopcart'>
+  <view><text class='edit'>{{editStatus}}</text></view>
+  <view class='blocks'>
+    <view class='block'>
+      <view class='row_top'>
+        <view class='check_box'></view>
+        <text>{{storeName}}</text>
+      </view>
+      <view class='pdts'>
+
+        <view class='pdt'>
+          <view class='row_main {{isTouchMove ? "touch_active" : ""}}' bindtouchstart="touchStart" bindtouchmove="touchMove">
+            <view class='check_box'></view>
+            <image class='pdt_img' src='http://file.ry600.com/files/Org/af/afvnal1p3sa59q79/Product/dn/dnmmnfde3rqcy7r8/photo_m.jpg'></image>
+            <view class='pdt_info'>
+              <view class='pdt_title'>
+                <text class='sale_tag'>促销</text>
+                <text>阿胶铁盒装</text>
+              </view>
+              <text class='orange'>￥299/盒</text>
+            </view>
+            <view class='count'>
+              <text class='sub'>-</text>
+              <input value='1' type='number'></input>
+              <text class='add'>+</text>
+            </view>
+          </view>
+          <view class='option'>
+            <text class='favorite'>收藏</text>
+            <text class='delete'>删除</text>
+          </view>
+        </view>
+      </view>
+      <view class='row_bottom'>
+        <view class='sel_all'>
+          <view class='check_box'></view>
+          <text>全选</text>
+        </view>
+        <view class='checkout_box'>
+          <view class='checkout'>
+            <view class='amount_box'><text class='amount_text'>合计：</text><text class='orange order_amount'>￥70.88</text></view>
+            <text class='freight'>免运费</text>
+          </view>
+          <view class='btn to_buy'>去结算(15)</view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

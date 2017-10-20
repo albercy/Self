@@ -1,1 +1,44 @@
-/* pages/homePage/index/index.wxss */
+.homeImg{
+  width: 100%;
+  height: 450rpx;
+}
+
+.list-content{
+  color: #fff;
+  margin-top: 20rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.list-item{
+  width: 90%;
+  height: 200rpx;
+  border-radius: 10rpx;
+  margin-bottom: 20rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.list-item view{
+  margin-left: 50rpx;
+  line-height: 55rpx;
+  display: flex;
+  flex-direction: column;
+  font-size: 24rpx;
+  font-weight: 300;
+}
+.list-item .item-name{
+  font-size: 30rpx;
+  font-weight: 500;
+}
+.list-item .item-icon{
+  margin-right: 20rpx;
+  width: 90rpx;
+  height: 100rpx;
+}
+.list-content .top{
+  background-image: linear-gradient(to right,#BA55D3,#FF69B4);
+}
+.list-content .bottom{
+  background-image: linear-gradient(to right,#6495ED,#40E0D0);
+}

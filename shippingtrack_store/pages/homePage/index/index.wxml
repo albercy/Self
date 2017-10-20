@@ -1,2 +1,19 @@
-<!--pages/homePage/index/index.wxml-->
-<text>pages/homePage/index/index.wxml</text>
+<view>
+  <image src='/images/bgImg.png' class='homeImg'></image>
+  <view class='list-content'>
+    <view class='list-item top'>
+      <view>
+        <text class='item-name'>我的账户</text>
+        <text>选择供应商、选择机构、切换用户</text>
+      </view>
+      <image src='/images/account_icon.png' class='item-icon'></image>
+    </view>
+    <view class='list-item bottom'>
+      <view>
+        <text class='item-name'>我的订单</text>
+        <text>查询订单、订单评价、订单跟踪</text>
+      </view>
+      <image src='/images/order_icon.png' class='item-icon'></image>
+    </view>
+  </view>
+</view>

@@ -13,3 +13,29 @@
     <text wx:for='{{item.bArr}}' wx:for-item='i'>{{i}}</text>
   </view>
 </view>
+<view class='list-content'>
+  <view class='list-item left'>
+    <image src='/images/account_icon.png' class='list-icon'></image>
+    <text>我的账户</text>
+  </view>
+  <view class='list-item right'>
+    <image src='/images/order_icon.png' class='list-icon'></image>
+    <text>我的订单</text>
+  </view>
+</view>
+<view class='newList'>
+  <view class='newList-item top'>
+    <view>
+      <text class='item-name'>我的账户</text>
+      <text>选择供应商、选择机构、切换用户</text>
+    </view>
+    <image src='/images/account_icon1.png' class='item-icon'></image>
+  </view>
+  <view class='newList-item bottom'>
+    <view>
+      <text class='item-name'>我的订单</text>
+      <text>查询订单、订单评价、订单跟踪</text>
+    </view>
+    <image src='/images/order_icon1.png' class='item-icon'></image>
+  </view>
+</view>

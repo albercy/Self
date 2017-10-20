@@ -1,0 +1,27 @@
+<!--pages/shopcart/shopcart.wxml-->
+<view class='shopcart'>
+  <view><text class='edit'>{{editStatus}}</text></view>
+  <view class='orders orders_all'>
+    <view class='order'>
+      <view class='row_top'>
+        <view class='check_box'></view>
+        <text class='sale_tag'>促销</text>
+        <text>广州白云山光华制药股份有限公司</text>
+      </view>
+      <view class='row_middle'>
+        <image class='pdt_img' src='http://file.ry600.com/files/Org/af/afvnal1p3sa59q79/Product/dn/dnmmnfde3rqcy7r8/photo_m.jpg'></image>
+        <view class='pdt_info'>
+          <text>阿胶铁盒装</text>
+          <view class='pdt_count'>
+            <text>￥299</text>
+            <text>×1</text>
+          </view>
+        </view>
+      </view>
+      <view class='row_bottom'>
+        <text class='red'>线下支付</text>
+        <view><text>合计：</text><text class='orange order_amount'>￥7</text></view>
+      </view>
+    </view>
+  </view>
+</view>

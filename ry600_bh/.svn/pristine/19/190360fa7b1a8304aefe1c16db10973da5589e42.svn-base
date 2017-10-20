@@ -1,0 +1,34 @@
+/* pages/template/slide/slide.wxss */
+.slide_wrap{
+  width: 750rpx;
+  overflow: hidden;
+}
+.touch-item {
+  border-bottom:1px solid #ccc;
+  width: 750rpx;
+  overflow: hidden;
+  position: relative;
+}
+.content {
+  width: 750rpx;
+  height: 80rpx;
+  -webkit-transform: translateX(180rpx);
+  transform: translateX(180rpx);
+  margin-left: -180rpx;
+  -webkit-transition: all 0.4s;
+  transition: all 0.4s;
+  position: relative;
+  z-index: 9;
+  background-color: #FFF;
+}
+.del {
+  background-color: orangered;
+  width: 180rpx;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+.touch-move-active .content{
+  -webkit-transform: translateX(0);
+  transform: translateX(0);
+}

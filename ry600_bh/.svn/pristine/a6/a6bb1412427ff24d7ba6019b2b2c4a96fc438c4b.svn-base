@@ -1,0 +1,36 @@
+/* pages/shopcart/shopcart.wxss */
+@import '../account/orderList/orderList.wxss';
+
+.edit{
+  width: 75rpx;
+  height: 75rpx;
+  border-radius: 50%;
+  background-color: #F50;
+  line-height: 75rpx;
+  color: #FFF;
+  text-align: center;
+  position: fixed;
+  top: 18rpx;
+  right: 18rpx;
+  font-size: 22rpx;
+}
+.row_top{
+  justify-content: flex-start;
+  align-items: center;
+  line-height: auto;
+}
+.check_box{
+  width: 28rpx;
+  height: 28rpx;
+  border: 1rpx solid #999;
+  border-radius: 50%;
+}
+.sale_tag{
+  color: #FFF;
+  font-size: 20rpx;
+  line-height: 34rpx;
+  background-color: #FF2D46;
+  border-radius: 15rpx;
+  padding: 0 14rpx;
+  margin: 0 10rpx 0 18rpx;
+}

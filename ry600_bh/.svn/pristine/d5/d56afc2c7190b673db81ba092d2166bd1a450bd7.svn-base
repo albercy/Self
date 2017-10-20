@@ -1,0 +1,34 @@
+/**app.wxss**/
+page{
+  font-family: "PingFang SC", "Hiragino Sans GB", "Heiti SC", "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif;
+  font-size: 28rpx;
+  color: #444;
+}
+page::after{
+  content: "";
+  width: 750rpx;
+  height: 2rpx;
+  position: fixed;
+  box-shadow: 0 8rpx 25rpx #AAA;
+  bottom: 0;
+  left: 0;
+  z-index: 99;
+}
+.container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 200rpx 0;
+  box-sizing: border-box;
+} 
+.placeholder{
+  color: #969696;
+  font-size: 28rpx;
+}
+.btn{
+  background-color: #F50;
+  color: #FFF;
+}
+

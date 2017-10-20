@@ -1,11 +1,11 @@
 <view class='quickEnter'>
   <view class='enterArea left'>
-    <view class='icon quickBill'>快速采购</view>
-    <view class='icon showcase' bindtap="toShopcase">商品分类</view>
+    <view class='icon quickBill bg'>快速采购</view>
+    <view class='icon showcase bg' bindtap="toShopcase">商品分类</view>
   </view>
   <view class='enterArea right'>
-    <view class='icon shopCart' bindtap='toShopcart'>购物车</view>
-    <view class='icon myAccount' bindtap='toAccount'>我的账户</view>
-    <view class='icon scanBill' bindtap='scanBill'>扫描采购</view>
+    <view class='icon shopCart bg' bindtap='toShopcart'>购物车</view>
+    <view class='icon myAccount bg' bindtap='toAccount'>我的账户</view>
+    <view class='icon scanBill bg' bindtap='scanBill'>扫描采购</view>
   </view>
 </view>
