@@ -3,39 +3,22 @@
   <text wx:for='{{pageArr}}' bindtap='numGoPage' class='page-num {{(item == isSelect ) ? "curr":""}}' id='{{item}}'>{{item}}</text>
   <text wx:if='{{nextShow}}' bindtap='goPage' id='next'>{{next}}</text>
 </view>
-<view>
-  <picker bindchange='pickerChange' value='{{pickerIdx}}' range='{{pickerArr}}'>
-    {{pickerArr[pickerIdx]}}
-  </picker>
-</view>
-<view class='test'>
-  <view wx:for='{{testArr}}'>
-    <text wx:for='{{item.bArr}}' wx:for-item='i'>{{i}}</text>
+
+<button bindtap='powerDrawer' data-status='open'>弹窗测试</button>
+<view class='drawer_bg' data-status='close' wx:if='{{showModalStatus}}' bindtap='powerDrawer'></view>
+
+<view animation='{{animationData}}' class='drawer_box' wx:if='{{showModalStatus}}'>
+  <view class='drawer_title'>
+    <view>当前机构选择</view>
+    <view data-status='close' bindtap='powerDrawer'>></view>
   </view>
-</view>
-<view class='list-content'>
-  <view class='list-item left'>
-    <image src='/images/account_icon.png' class='list-icon'></image>
-    <text>我的账户</text>
-  </view>
-  <view class='list-item right'>
-    <image src='/images/order_icon.png' class='list-icon'></image>
-    <text>我的订单</text>
-  </view>
-</view>
-<view class='newList'>
-  <view class='newList-item top'>
-    <view>
-      <text class='item-name'>我的账户</text>
-      <text>选择供应商、选择机构、切换用户</text>
+  <radio-group class='drawer_content'>
+    <view class='drawer_item' wx:for='{{orgArr}}' bindtap='selectOrg' data-idx='{{index}}'>
+      <text class='item_name'>{{item}}</text>
+      <radio color='#ff5200' class='radio_style' checked='{{radioSelect == index ? true : false}}' />
     </view>
-    <image src='/images/account_icon1.png' class='item-icon'></image>
-  </view>
-  <view class='newList-item bottom'>
-    <view>
-      <text class='item-name'>我的订单</text>
-      <text>查询订单、订单评价、订单跟踪</text>
-    </view>
-    <image src='/images/order_icon1.png' class='item-icon'></image>
+  </radio-group>
+  <view class='drawer_btn'>
+    <button data-status='close' bindtap='powerDrawer'>确定</button>
   </view>
 </view>

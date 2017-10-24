@@ -19,20 +19,19 @@ page{
   display: flex;
   align-items: center;
   border-bottom: 1px solid #ccc;
-  margin-bottom: 30rpx;
+  margin-bottom: 20rpx;
+  height: 80rpx;
 }
 .area input{
   margin-left: 20rpx;
 }
 .input-img{
-  width: 32rpx;
-  height: 32rpx;
+  width: 40rpx;
+  height: 40rpx;
 }
 
 .login-btn {
   font-size: 35rpx;
   width: 550rpx;
-  background-color: #39464e;
   margin-top: 20rpx;
-  color: #fff;
 }

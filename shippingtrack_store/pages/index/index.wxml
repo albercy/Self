@@ -1,46 +1,58 @@
-<view class="home">
-  <view class="ava-content">
-    <view class='menu'>
-      <text bindtap='exitAccount'>注销用户</text>
-      <text bindtap='select' id='1'>切换机构</text>
-      <text bindtap='select' id='2'>切换服务商</text>
+<view>
+  <view class='app-header bg-color'>
+    <view class='header-msg'>
+      <view class='msg-rel'>{{orgName}}</view>
+      <view>当前机构：{{relOrgName}}</view>
     </view>
-    <image src="../images/ava.png" class="ava" bindtap="toCenter"></image>
-    
-      <text class="username">{{userName}}</text>
-      <text>{{relOrgName}}</text>
-      <text>{{orgName}}</text>
-    
+    <view class='header-txt'>药跟踪</view>
+    <view class='header-input'>
+      <input placeholder='请输入你要搜索的订单号' placeholder-class='holder-txt' bindfocus='inputFocus' confirm-type='搜索'></input>
+    </view>
   </view>
-  <view class='order-content'>
-    <view class="newOrder">
-      <view class='order-top'>
-        <text>最新动态</text>
-        <navigator url='../orderList/orderList?idData={{idData}}'>更多...</navigator>
+  <view class='app-content'>
+    <view class='content-up'>
+      <view class='content-item' bindtap='powerDrawer' data-status='open' data-org='org'>
+        <image src='/images/relOrg_icon.png'></image>
+        <text>切换供应商</text>
       </view>
-
-      <view class='order'>
-        <view class='order-title'>
-          <text>订单号 {{orderCode}}</text>
-          <text>{{createTime}}</text>
-        </view>
-        <view class='package-content'>
-          <view class='package' wx:for="{{parcelArr}}"  bindtap='toDetail' data-pIdx='{{index}}'>
-            <view class='package-title'>
-              <text>包裹号 {{item.parcelCode}}</text>
-              <text>状态 {{item.state}}</text>
-            </view>
-            <text>配送员：{{item.sender}}</text>
-            <text>{{item.lastModifyTime}}</text>
-          </view>
-        </view>
+      <view class='content-item' bindtap='powerDrawer' data-status='open' data-org='relOrg'>
+        <image src='/images/org_icon.png' class='small'></image>
+        <text>切换机构</text>
       </view>
+      <view class='content-item'>
+        <image src='/images/order_icon.png'></image>
+        <text>我的订单</text>
+      </view>
+      <view class='content-item'>
+        <image src='/images/account_icon.png'></image>
+        <text>我的账户</text>
+      </view>
+    </view>
+    <view class='content-tip'>
+      <view class='tip-title'>温馨提示</view>
+      <view class='tip-content'>
+        <text>1、订单、包裹信息来源为供货商，信息非完整信息，请以供货商实际信息为准，本程序仅供参考。</text>
+        <text>2、如果查询结果为空，请检查当前机构和服务商，或重新登录更新信息。</text>
+        <text>3、如果当前用户只有一个供应商/机构，用户无法切换供应商/机构。</text>
+      </view>
+    </view>
+  </view>
+</view>
 
+<view class='drawer_bg' data-status='close' wx:if='{{showModalStatus}}' bindtap='powerDrawer'></view>
+
+<view animation='{{animationData}}' class='drawer_box' wx:if='{{showModalStatus}}'>
+  <view class='drawer_title bg-color'>
+    <view>{{orgTitle}}</view>
+    <view data-status='close' bindtap='powerDrawer'>></view>
+  </view>
+  <radio-group class='drawer_content'>
+    <view class='drawer_item' wx:for='{{orgArr}}' bindtap='selectOrg' data-idx='{{index}}'>
+      <text class='item_name'>{{item}}</text>
+      <radio color='#2a9293' class='radio_style' checked='{{radioSelect == index ? true : false}}' />
     </view>
-    <view class='tip'>
-      <text>提示：</text>
-      <text>1、订单、包裹信息来源为供货商，信息非完整信息，以供货商实际信息为准，此程序仅供参考。</text>
-      <text>2、如果查询结果为空，请检查当前机构和服务商，或信息未更新。</text>
-    </view>
+  </radio-group>
+  <view class='drawer_btn'>
+    <button data-status='close' bindtap='powerDrawer' class='bg-color'>确定</button>
   </view>
 </view>

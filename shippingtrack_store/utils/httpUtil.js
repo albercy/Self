@@ -69,7 +69,7 @@ function saveData(dataBack) {
       if (callback) {
         _data.orgId = callback.results[0].storeOrgId
         _data.bizCenterId = callback.results[0].bizCenterId
-        _data.orgName = callback.results[0].orgName
+        _data.orgName = callback.results[0].storeName
 
         if (callback.results.length > 1) {
           _data.orgIdArr = []
@@ -78,7 +78,7 @@ function saveData(dataBack) {
           for (let i = 0; i < callback.results.length; i++) {
             _data.orgIdArr.push(callback.results[i].storeOrgId)
             _data.bizCenterIdArr.push(callback.results[i].bizCenterId)
-            _data.orgNameArr.push(callback.results[i].orgName)
+            _data.orgNameArr.push(callback.results[i].storeName)
           }
         }
         resolve()

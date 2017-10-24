@@ -1,5 +1,5 @@
 var idData = new Object()
-var httpApi = require('../../utils/httpApi')
+var httpApi = require('../../utils/httpUtil')
 
 Page({
   data: {

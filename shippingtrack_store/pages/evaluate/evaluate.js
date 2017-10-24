@@ -1,4 +1,4 @@
-var httpApi = require('../../utils/httpApi')
+var httpApi = require('../../utils/httpUtil')
 var idData = new Object()
 var relOrgId
 

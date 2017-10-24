@@ -1,74 +1,92 @@
-page {
-    font-size: 30rpx;
-    font-weight: 300;
-    height: auto;
+@import 'drawer.wxss';
+
+.header-msg {
+  display: flex;
+  justify-content: space-between;
+  padding: 12rpx 4% 0;
 }
 
-.ava-content {
-    margin-top: 30rpx;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-    line-height: 50rpx;
+.header-msg .msg-rel {
+  background: #fff;
+  color: #2a9293;
+  padding: 0 8rpx;
+  font-size: 28rpx;
+  border-radius: 8rpx;
 }
 
-.menu {
-    display: flex;
-    flex-direction: column;
-    line-height: 50rpx;
-    position: absolute;
-    top: 0;
-    left: 5%;
+.header-txt {
+  height: 150rpx;
+  text-align: center;
+  font-size: 55rpx;
+  font-style: italic;
+  letter-spacing: 8rpx;
+  font-weight: 600;
+  line-height: 170rpx;
 }
 
-.ava {
-    width: 128rpx;
-    height: 128rpx;
+.header-input {
+  height: 100rpx;
+  padding: 0 10%;
 }
 
-.username {
-    margin-top: 15rpx;
-    font-size: 35rpx;
-    font-weight: 400;
+.header-input input {
+  background: #fff;
+  border-radius: 30rpx;
+  color: #939393;
+  height: 64rpx;
 }
 
-.order-content {
-    margin-top: 40rpx;
-    padding: 20rpx 5%;
+.header-input .holder-txt {
+  font-size: 28rpx;
+  text-align: center;
 }
 
-.order-top, .order-title, .package-title {
-    display: flex;
-    justify-content: space-between;
+.content-up {
+  display: flex;
+  justify-content: space-around;
+  background-color: #fff;
+  height: 180rpx;
+  font-size: 28rpx;
+  font-size: 28rpx;
+  color: #666;
 }
 
-.order-title {
-    padding: 8rpx 10rpx;
-    border-bottom: 1px solid #676767;
+.content-item {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 20%;
 }
 
-.order {
-    border: 1px solid #676767;
+.content-item image {
+  width: 70rpx;
+  height: 70rpx;
+  margin-bottom: 8rpx;
 }
 
-.package {
-    padding: 10rpx;
-    line-height: 50rpx;
-    display: flex;
-    flex-direction: column;
-    border-bottom:1px solid #ccc;
-}
-.package:last-child{
-    border: none;
+.content-item .small {
+  width: 64rpx;
+  height: 64rpx;
+  margin-top: 6rpx;
 }
 
-.tip {
-    margin: 40rpx auto 0;
-    display: flex;
-    flex-direction: column;
-    line-height: 50rpx;
-    border-top: 1px solid #676767;
-    padding-top: 20rpx;
+.content-tip {
+  margin-top: 20rpx;
+  background-color: #fff;
+  color: #2c2c2c;
+}
+
+.tip-title {
+  text-align: center;
+  font-size: 35rpx;
+  padding: 20rpx 0;
+}
+
+.tip-content {
+  display: flex;
+  flex-direction: column;
+  padding:10rpx 5% 20rpx;
+  line-height: 55rpx;
+  color: #515151;
 }

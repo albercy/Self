@@ -7,3 +7,15 @@ page{
 input{
   font-family: "PingFang SC", "Hiragino Sans GB", "Heiti SC", "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif;
 }
+
+.bg{
+  background-image: url('http://file.ry600.com/snapshot/vms/site/di/di70684438lrfavs/82ojywir5vqogktm/image//wx_icons.png');
+  background-position:40rpx -1735rpx;
+  background-repeat: no-repeat;
+  background-size: 115rpx auto;
+}
+
+.bg-color{
+  background-color: #2a9293;
+  color: #fff;
+}

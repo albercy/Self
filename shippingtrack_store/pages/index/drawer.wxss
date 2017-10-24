@@ -1,19 +1,3 @@
-.page {
-  width: 100%;
-  display: flex;
-  justify-content: center;
-}
-
-.page text {
-  padding: 5rpx 15rpx;
-  border: 1px solid #ccc;
-  margin-left: -1px;
-}
-
-.page .curr {
-  color: #f00;
-}
-
 .drawer_bg {
   width: 100%;
   height: 100%;
@@ -33,8 +17,8 @@
   top: 40%;
   left: 0;
   z-index: 1001;
-  /* background-color: rgba(240, 240, 240, 0.7); */
-  background-color: #fff;
+  background-color: rgba(250, 250, 250, 0.9); 
+  /* background-color: #fff; */
   margin: -150px 50rpx 0 50rpx;
   border-radius: 12rpx;
 }
@@ -43,7 +27,6 @@
   display: flex;
   justify-content: space-between;
   padding: 20rpx 30rpx;
-  background-color: #f2540b;
   color: #fff;
   font-size: 36rpx;
   letter-spacing: 5rpx;
@@ -62,7 +45,11 @@
   padding: 10rpx;
   font-size: 32rpx;
   color: #3d3834;
-  border-bottom: 1px solid #f0f0f0;
+  border-bottom: 1px solid #ccc;
+}
+
+.drawer_item:last-child{
+  border-bottom: none;
 }
 
 .radio_style{
@@ -78,6 +65,5 @@
   height: 56rpx;
   line-height: 56rpx;
   font-size: 32rpx;
-  background-color: #ff5102;
   color: #fff;
 }

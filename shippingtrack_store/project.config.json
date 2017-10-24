@@ -25,7 +25,7 @@
 				{
 					"id": 1,
 					"name": "设计新页面专用",
-					"pathName": "pages/center/center",
+					"pathName": "pages/search/search",
 					"query": "",
 					"scene": "1001"
 				}

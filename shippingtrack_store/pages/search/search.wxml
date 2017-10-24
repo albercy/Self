@@ -1,0 +1,8 @@
+<view>
+  <view class='search-content'>
+    <view class='content-input bg'>
+      <input placeholder='输入你要搜索的订单号' placeholder-class='holder-txt' bindinput='inputEntry' confirm-type='搜索'></input>
+    </view>
+    <button class="{{isFocus?'bg-color':''}}" bindtap='searchClick'>{{btnTxt}}</button>
+  </view>
+</view>

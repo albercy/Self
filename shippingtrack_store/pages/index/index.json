@@ -1,3 +1,4 @@
 {
-  "navigationBarTitleText": "主页"
+  "navigationBarBackgroundColor": "#2a9293",
+  "navigationBarTextStyle": "white"
 }

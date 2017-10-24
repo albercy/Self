@@ -43,12 +43,9 @@ Page({
       httpUtil.loginHttp(paramer, function (callback) {
         closeLoading()
         if (callback.success) {
-          var _data = getApp().globalData.msgData
-          if(!_data.orgIdArr && !_data.relOrgIdArr){
-            wx.switchTab({
-              url: '../homePage/index/index',
-            })
-          }
+          wx.redirectTo({
+            url: '../index/index',
+          })
         }
         else {
           wx.showModal({

@@ -1,0 +1,33 @@
+page {
+  background-color: #fff;
+}
+
+.search-content {
+  display: flex;
+  padding: 20rpx 3%;
+  justify-content: space-between;
+  border-bottom: 1px solid #ddd;
+}
+
+.search-content .content-input {
+  width: 75%;
+  background-color: #f0f0f0;
+  border-radius: 30rpx;
+}
+
+.search-content input {
+  height: 70rpx;
+  padding-left: 100rpx;
+}
+
+.search-content .holder-txt {
+  color: #676767;
+}
+
+.search-content button {
+  margin: 0;
+  width: 130rpx;
+  height: 70rpx;
+  line-height: 70rpx;
+  font-size: 30rpx;
+}

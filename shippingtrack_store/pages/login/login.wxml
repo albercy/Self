@@ -11,6 +11,6 @@
         <input name="password" type="password" placeholder="密码" value="{{password}}"></input>
       </view>
     </view>
-    <button formType="submit" loading="{{btnLoading}}" class="login-btn" loading="{{btnLoad}}" plain="{{btnPlain}}">登 录</button>
+    <button formType="submit" loading="{{btnLoading}}" class="login-btn bg-color" loading="{{btnLoad}}" plain="{{btnPlain}}">登 录</button>
   </form>
 </view>

@@ -1,20 +1,16 @@
 var pageCount = 5
 var pageIndex = 1
 var pageArr = []
-var dropArr = ['aaa', 'bbb', 'ccc']
-var md5 = require('../../utils/md5')
 
 Page({
   data: {
     last: '<',
     next: '>',
     isSelect: 1,
-    changeTxt: '全部',
     pageArr: [1, 2, 3],
-    dropArr: ['aaa', 'bbb', 'ccc'],
-    testArr: [{ bArr: ['111', '222', '333'] }],
-    pickerArr: ['aa', 'bb', 'cc'],
-    pickerIdx: 0
+    orgArr: ['梅花园药店', '京溪药店', '体育路药店', '同和药店', '天河南药店', '番禺市桥药店', '广州爱心大药房', '中山三院便民药房'],
+    radioSelect: 0,
+    showModalStatus: false
   },
   onLoad: function (options) {
     var that = this
@@ -104,24 +100,48 @@ Page({
       that.idxChange(pageIndex - 1)
     }
   },
-  drop: function () {
+  selectOrg: function (e) {
+    var _idx = e.currentTarget.dataset.idx
     this.setData({
-      dropShow: !this.data.dropShow
+      radioSelect: _idx
     })
   },
-  change: function (e) {
-    //console.log(e)
-    dropArr[e.currentTarget.dataset.ididx] = this.data.changeTxt
-    this.setData({
-      changeTxt: e.currentTarget.dataset.ctxt,
-      dropArr: dropArr,
-      dropShow: false
-    })
+  powerDrawer: function (e) {
+    var currentStatus = e.currentTarget.dataset.status
+    this.util(currentStatus)
   },
-  pickerChange: function (e) {
-    console.log(e.detail.value)
-    this.setData({
-      pickerIdx: e.detail.value
+  util: function (currentStatus) {
+    var animation = wx.createAnimation({
+      duration: 200,
+      timingFunction: 'linear',
+      delay: 0
     })
+
+    this.animation = animation
+
+    animation.opacity(0).rotateX(-100).step()
+
+    this.setData({
+      animationData: animation.export()
+    })
+
+    setTimeout(function () {
+      animation.opacity(1).rotateX(0).step()
+      this.setData({
+        animationData: animation
+      })
+
+      if (currentStatus == 'close') {
+        this.setData({
+          showModalStatus: false
+        })
+      }
+    }.bind(this), 200)
+
+    if (currentStatus == "open") {
+      this.setData({
+        showModalStatus: true
+      });
+    }
   }
 })

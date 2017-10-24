@@ -1,4 +1,4 @@
-var httpApi = require('../../utils/httpApi')
+var httpApi = require('../../utils/httpUtil')
 var orderArr = []
 var packageArr = []
 var pageCount = 5
