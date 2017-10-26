@@ -1,76 +1,83 @@
-.order_content {
-    margin-top: 20rpx;
-    background-color: #fff;
-    color: #676767;
-  }
-  
-  .order_title {
-    display: flex;
-    justify-content: space-between;
-    padding: 20rpx 30rpx;
-    border-bottom: 1px solid #ccc;
-  }
-  
-  .order_title .order_msg text:first-child{
-    font-size: 33rpx;
-    color:#191816;
-    margin-right: 20rpx;
-  }
-  .order_title .order_msg text:last-child{
-    color: #576069;
-  }
-  
-  .order_title .order_time {
-    font-size: 26rpx;
-    align-self: flex-end;
-  }
-  
-  .package_item {
-    display: flex;
-    align-items: center;
-    padding: 30rpx;
-    border-bottom: 1px solid #f0f0f0;
-  }
-  
-  .package_item:last-child{
-    border-bottom: none;
-  }
-  
-  .package_item image {
-    width: 85rpx;
-    height: 85rpx;
-    margin:0 45rpx 0 30rpx;
-  }
-  
-  .package_msg{
-    line-height: 60rpx;
-  }
-  
-  .package_msg .msg view text:first-child{
-    font-size: 32rpx;
-    color: #191816;
-  }
-  
-  .package_msg .msg view text:last-child{
-    color: #576069;
-  }
-  
-  .package_msg .up{
-    display: flex;
-    justify-content: space-between;
-  }
-  .package_msg .num text:first-child{
-    letter-spacing: 15rpx;
-  }
-  
-  .package_msg .state{
-    margin-left: 50rpx;
-  }
-  
-  .package_msg .state text:first-child,.package_msg .time text:first-child{
-    margin-right: 15rpx;
-  }
-  
-  .package_msg .state text:last-child{
-    color: #FF6347 !important;
-  }
+.order_item {
+  color: #676767;
+  margin-top: 20rpx;
+  background-color: #fff;
+}
+
+.order_title {
+  display: flex;
+  justify-content: space-between;
+  padding: 20rpx 30rpx;
+  border-bottom: 1px solid #ccc;
+}
+
+.order_title .order_msg text:first-child {
+  font-size: 33rpx;
+  color: #191816;
+  margin-right: 20rpx;
+}
+
+.order_title .order_msg text:last-child {
+  color: #576069;
+}
+
+.order_title .order_time {
+  font-size: 26rpx;
+  align-self: flex-end;
+}
+
+.package_item {
+  display: flex;
+  align-items: center;
+  padding: 30rpx;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.package_item:last-child {
+  border-bottom: none;
+}
+
+.package_item image {
+  width: 85rpx;
+  height: 85rpx;
+  margin: 0 45rpx 0 30rpx;
+}
+
+.package_msg {
+  line-height: 60rpx;
+}
+
+.package_msg .msg view text:first-child {
+  font-size: 32rpx;
+  color: #191816;
+}
+
+.package_msg .msg view text:last-child {
+  color: #576069;
+}
+
+.package_msg .up {
+  display: flex;
+  justify-content: space-between;
+}
+
+.package_msg .num text:first-child {
+  letter-spacing: 15rpx;
+}
+
+.package_msg .state {
+  margin-left: 50rpx;
+}
+
+.package_msg .state text:first-child, .package_msg .time text:first-child {
+  margin-right: 15rpx;
+}
+
+.package_msg .state text:last-child {
+  color: #ff6347 !important;
+}
+
+.noPackage{
+  padding: 30rpx;
+  text-align: center;
+}

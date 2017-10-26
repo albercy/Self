@@ -6,85 +6,45 @@
     <button class="bg-color" bindtap='searchClick'>{{btnTxt}}</button>
   </view>
 
-  <view class='order_content'>
-    <view class='order_item'>
+  <view class='order_content' wx:if='{{hasOrder}}'>
+    <view class='order_item' wx:for='{{orderArr}}'>
       <view class='order_title'>
         <view class='order_msg'>
           <text>订单号</text>
-          <text>20132413315111</text>
+          <text>{{item.billId}}</text>
         </view>
-        <text class='order_time'>2017-10-27 17:27:03</text>
+        <text class='order_time'>{{item.billDate}}</text>
       </view>
-      <view class='package_list'>
 
-        <view class='package_item'>
+      <view class='package_list' wx:if='{{item.hasPackage}}'>
+        <view class='package_item' wx:for='{{item.packageArr}}' wx:for-item='packageItem'>
           <image src='/images/package.png'></image>
           <view class='package_msg'>
             <view class='msg up'>
               <view class='num'>
                 <text>包裹号</text>
-                <text>987456756</text>
+                <text>{{packageItem.bizBillCode}}</text>
               </view>
               <view class='state'>
                 <text>状态</text>
-                <text>配送中</text>
+                <text>{{packageItem.state}}</text>
               </view>
             </view>
             <view class='msg down'>
               <view class='time'>
                 <text>创建时间</text>
-                <text>2017-10-26 14:59:55</text>
+                <text>{{packageItem.createTime}}</text>
               </view>
             </view>
           </view>
         </view>
-
-        <view class='package_item'>
-          <image src='/images/package.png'></image>
-          <view class='package_msg'>
-            <view class='msg up'>
-              <view class='num'>
-                <text>包裹号</text>
-                <text>987456756</text>
-              </view>
-              <view class='state'>
-                <text>状态</text>
-                <text>配送中</text>
-              </view>
-            </view>
-            <view class='msg down'>
-              <view class='time'>
-                <text>创建时间</text>
-                <text>2017-10-26 14:59:55</text>
-              </view>
-            </view>
-          </view>
-        </view>
-
-        <view class='package_item'>
-          <image src='/images/package.png'></image>
-          <view class='package_msg'>
-            <view class='msg up'>
-              <view class='num'>
-                <text>包裹号</text>
-                <text>987456756</text>
-              </view>
-              <view class='state'>
-                <text>状态</text>
-                <text>配送中</text>
-              </view>
-            </view>
-            <view class='msg down'>
-              <view class='time'>
-                <text>创建时间</text>
-                <text>2017-10-26 14:59:55</text>
-              </view>
-            </view>
-          </view>
-        </view>
-
       </view>
+
+      <view wx:else class='noPackage'>暂无相关包裹信息</view>
     </view>
   </view>
 
+  <view wx:else>
+    暂无相关的订单信息
+  </view>
 </view>

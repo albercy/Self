@@ -13,6 +13,7 @@ Page({
     this.setData({
       isFocus: true
     })
+    this.getListItems()
   },
   inputEntry: function (e) {
     inputContent = e.detail.value
@@ -29,17 +30,27 @@ Page({
     })
   },
   getListItems: function (e) {
+    var that = this
+    var orderArr = []
+
     var orderData = {
       action: 'VSERPSellBill.getERPSellBillsForRelOrgId',
-      start: 0,
+      start: 1807,
       limit: 5
     }
 
     orderData = Object.assign(orderData, _msgData)
     var httpPromise = new Promise(function (resolve, reject) {
       httpUtil.getHttp(orderData, function (callback) {
-        console.log(callback)
-        resolve(callback.results)
+        //console.log(callback)
+        if(callback.success){
+          if(callback.results.length > 0){
+            that.setData({
+              hasOrder: true
+            })
+          }
+          resolve(callback.results)
+        }
       })
     })
     httpPromise.then(function (val) {
@@ -47,19 +58,32 @@ Page({
         action: 'VSTms.getTmsParcelsByBizBillCode',
         orgId: _msgData.orgId
       }
-        ; (function getPackage(i) {
-          //console.log(i)
-          if (i == val.length) {
-            return
-          }
-          packageData.bizBillCode = val[i].billId
-          httpUtil.getHttp(packageData, function (callback) {
-            if (callback.success) {
-              console.log(callback)
-              getPackage(i + 1)
+      ; (function getPackage(i) {
+        //console.log(i)
+        
+        if (i == val.length) {
+          return
+        }
+
+        packageData.bizBillCode = val[i].billId
+        httpUtil.getHttp(packageData, function (callback) {
+          if (callback.success) {
+            //console.log(callback)
+            if(callback.results.length > 0){
+              val[i].hasPackage = true
+              val[i].packageArr = callback.results
             }
-          })
-        })(0)
+            else{
+              val[i].hasPackage = false
+            }
+            getPackage(i + 1)
+          }
+        })
+      })(0)
+      console.log(val)
+      that.setData({
+        orderArr: val
+      })
     })
   }
 })
