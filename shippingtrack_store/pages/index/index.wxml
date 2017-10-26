@@ -2,7 +2,7 @@
   <view class='app-header bg-color'>
     <view class='header-msg'>
       <view class='msg-rel'>{{orgName}}</view>
-      <view>当前机构：{{relOrgName}}</view>
+      <view>当前用户：{{givenName}}</view>
     </view>
     <view class='header-txt'>药跟踪</view>
     <view class='header-input'>
@@ -23,9 +23,9 @@
         <image src='/images/order_icon.png'></image>
         <text>我的订单</text>
       </view>
-      <view class='content-item'>
+      <view class='content-item' bindtap='changeAccount'>
         <image src='/images/account_icon.png'></image>
-        <text>我的账户</text>
+        <text>切换账户</text>
       </view>
     </view>
     <view class='content-tip'>

@@ -8,6 +8,7 @@ Page({
     showModalStatus: false
   },
   onLoad: function (options) {
+    var that = this
     _msgData = _msgData.msgData
     this.setData(_msgData)
     wx.setNavigationBarTitle({
@@ -17,7 +18,7 @@ Page({
       action: 'VSUser.getBasicInfo'
     }
     httpUtil.getHttp(userData,function(callback){
-      console.log(callback)
+      that.setData(callback.results[0])
     })
   },
   inputFocus: function(){
@@ -55,7 +56,8 @@ Page({
       wx.showModal({
         title: '提示',
         content: '没有更多的' + orgStr + '选择',
-        showCancel: false
+        showCancel: false,
+        confirmColor: '#2a9293'
       })
     }
     
@@ -93,5 +95,19 @@ Page({
         showModalStatus: true
       });
     }
+  },
+  changeAccount: function(){
+    wx.showModal({
+      title: '提示',
+      content: '此操作会退出当前用户，是否继续',
+      confirmColor: '#2a9293',
+      success: function(res){
+        if(res.confirm){
+          wx.reLaunch({
+            url: '../login/login'
+          })
+        }
+      }
+    })
   }
 })

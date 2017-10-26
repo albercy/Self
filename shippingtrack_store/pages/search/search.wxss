@@ -1,12 +1,11 @@
-page {
-  background-color: #fff;
-}
+@import 'orderList.wxss';
 
 .search-content {
   display: flex;
   padding: 20rpx 3%;
   justify-content: space-between;
   border-bottom: 1px solid #ddd;
+  background-color: #fff;
 }
 
 .search-content .content-input {
@@ -30,4 +29,12 @@ page {
   height: 70rpx;
   line-height: 70rpx;
   font-size: 30rpx;
+}
+
+.btnHide button{
+  display: none;
+}
+
+.btnHide .content-input{
+  width: 100%;
 }

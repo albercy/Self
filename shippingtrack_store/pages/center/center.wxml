@@ -5,6 +5,7 @@
 </view>
 
 <button bindtap='powerDrawer' data-status='open'>弹窗测试</button>
+
 <view class='drawer_bg' data-status='close' wx:if='{{showModalStatus}}' bindtap='powerDrawer'></view>
 
 <view animation='{{animationData}}' class='drawer_box' wx:if='{{showModalStatus}}'>

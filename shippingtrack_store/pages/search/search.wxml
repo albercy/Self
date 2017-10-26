@@ -1,8 +1,66 @@
 <view>
-  <view class='search-content'>
+  <view class="search-content {{showBtn?'':'btnHide'}}">
     <view class='content-input bg'>
-      <input placeholder='输入你要搜索的订单号' placeholder-class='holder-txt' bindinput='inputEntry' confirm-type='搜索'></input>
+      <input placeholder='输入你要搜索的订单号' placeholder-class='holder-txt' bindinput='inputEntry' confirm-type='search' focus='{{isFocus}}' bindfocus='inputFocus'></input>
     </view>
-    <button class="{{isFocus?'bg-color':''}}" bindtap='searchClick'>{{btnTxt}}</button>
+    <button class="bg-color" bindtap='searchClick'>{{btnTxt}}</button>
   </view>
+
+  <view class='order_content'>
+    <view class='order_item'>
+      <view class='order_title'>
+        <view class='order_msg'>
+          <text>订单号</text>
+          <text>20132413315111</text>
+        </view>
+        <text class='order_time'>2017-10-27 17:27:03</text>
+      </view>
+      <view class='package_list'>
+
+        <view class='package_item'>
+          <image src='/images/package.png'></image>
+          <view class='package_msg'>
+            <view class='msg up'>
+              <view class='num'>
+                <text>包裹号</text>
+                <text>987456756</text>
+              </view>
+              <view class='state'>
+                <text>状态</text>
+                <text>配送中</text>
+              </view>
+            </view>
+            <view class='msg down'>
+              <view class='time'>
+                <text>创建时间</text>
+                <text>2017-10-26 14:59:55</text>
+              </view>
+            </view>
+          </view>
+        </view>
+        <view class='package_item'>
+          <image src='/images/package.png'></image>
+          <view class='package_msg'>
+            <view class='msg up'>
+              <view class='num'>
+                <text>包裹号</text>
+                <text>987456756</text>
+              </view>
+              <view class='state'>
+                <text>状态</text>
+                <text>配送中</text>
+              </view>
+            </view>
+            <view class='msg down'>
+              <view class='time'>
+                <text>创建时间</text>
+                <text>2017-10-26 14:59:55</text>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+
 </view>

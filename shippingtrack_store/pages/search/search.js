@@ -1,33 +1,65 @@
+var httpUtil = require('../../utils/httpUtil.js')
+var inputContent = ''
+var _msgData = getApp().globalData
+var itemIdx = 0
+
 Page({
   data: {
-    btnTxt: '取消'
+    btnTxt: '搜索',
+    showBtn: true
   },
-  onLoad: function (options) {},
-  inputEntry: function(e){
-    if(e.detail.value != ''){
-      this.setData({
-        isFocus: true,
-        btnTxt: '搜索'
-      })
-    }
-    else{
-      this.setData({
-        isFocus: false,
-        btnTxt: '取消'
-      })
-    }
+  onLoad: function (options) {
+    _msgData = _msgData.msgData
+    this.setData({
+      isFocus: true
+    })
   },
-  searchClick: function(){
-    if(this.data.btnTxt == '取消'){
-      wx.navigateBack({
-        url: '../index/index'
-      })
+  inputEntry: function (e) {
+    inputContent = e.detail.value
+  },
+  searchClick: function () {
+    this.setData({
+      showBtn: false
+    })
+    this.getListItems(inputContent)
+  },
+  inputFocus: function () {
+    this.setData({
+      showBtn: true
+    })
+  },
+  getListItems: function (e) {
+    var orderData = {
+      action: 'VSERPSellBill.getERPSellBillsForRelOrgId',
+      start: 0,
+      limit: 5
     }
-    else{
-      wx.showModal({
-        title: '提示',
-        content: '没有搜索结果'
+
+    orderData = Object.assign(orderData, _msgData)
+    var httpPromise = new Promise(function (resolve, reject) {
+      httpUtil.getHttp(orderData, function (callback) {
+        console.log(callback)
+        resolve(callback.results)
       })
-    }
+    })
+    httpPromise.then(function (val) {
+      var packageData = {
+        action: 'VSTms.getTmsParcelsByBizBillCode',
+        orgId: _msgData.orgId
+      }
+        ; (function getPackage(i) {
+          //console.log(i)
+          if (i == val.length) {
+            return
+          }
+          packageData.bizBillCode = val[i].billId
+          httpUtil.getHttp(packageData, function (callback) {
+            if (callback.success) {
+              console.log(callback)
+              getPackage(i + 1)
+            }
+          })
+        })(0)
+    })
   }
 })

@@ -39,7 +39,7 @@
   border-radius: 12rpx;
 }
 
-.drawer_title{
+.drawer_title {
   display: flex;
   justify-content: space-between;
   padding: 20rpx 30rpx;
@@ -50,13 +50,13 @@
   font-weight: 200;
 }
 
-.drawer_content{
+.drawer_content {
   height: 480rpx;
   padding: 10rpx 20rpx;
   overflow-y: scroll;
 }
 
-.drawer_item{
+.drawer_item {
   display: flex;
   justify-content: space-between;
   padding: 10rpx;
@@ -65,15 +65,16 @@
   border-bottom: 1px solid #f0f0f0;
 }
 
-.radio_style{
+.radio_style {
   /* background-color: #f0f0f0; */
   transform: scale(0.7);
 }
 
-.drawer_btn{
+.drawer_btn {
   padding: 26rpx 0;
 }
-.drawer_btn button{
+
+.drawer_btn button {
   width: 155rpx;
   height: 56rpx;
   line-height: 56rpx;
