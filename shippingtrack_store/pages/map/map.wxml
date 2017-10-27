@@ -1,1 +1,3 @@
-<map longitude="{{mLongitude}}" latitude="{{mLatitude}}" class="map" markers="{{mMarkers}}" polyline="{{mPolyline}}"/>
+<scroll-view style='{{scrollHeight}}px' scroll-y='true' bindscrolltolower='scrollEvent'>
+  <view wx:for='{{mArr}}'>{{item}}</view>
+</scroll-view>

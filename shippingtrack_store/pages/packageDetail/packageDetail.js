@@ -1,5 +1,6 @@
 var idData = new Object()
-var httpApi = require('../../utils/httpUtil')
+var httpUtil = require('../../utils/httpUtil')
+var _msgData
 
 Page({
   data: {
@@ -7,44 +8,51 @@ Page({
   },
   onLoad: function (options) {
     var that = this
-    idData = JSON.parse(options.idData)
-    console.log(idData)
-    var getTracks = 'getTmsParcelTracks'
-    var getDetails = 'getTmsParcelDetail'
-    var httpPromise = new Promise(function(resolve,reject){
-      httpApi.getHttp(getTracks, function (callback) {
+    _msgData = getApp().globalData.msgData
+    _msgData.parcelCode = options.code
+    _msgData.bizCenterId = options.pId
+
+    var tracksData = { action: 'VSTms.getTmsParcelTracks' }
+    var detailData = { action: 'VSTms.getTmsParcelDetail' }
+    tracksData = Object.assign(tracksData,_msgData)
+    detailData = Object.assign(detailData,_msgData)
+
+    var httpPromise = new Promise(function (resolve, reject) {
+      httpUtil.getHttp(tracksData, function (callback) {
         console.log(callback)
         if (callback.success) {
-          that.setData({
-            billId: callback.results[0].billId,
-            remarkArr: callback.results
-          })
-          resolve()
+          if(callback.results.length > 0){
+            that.setData({
+              billId: callback.results[0].billId,
+              remarkArr: callback.results
+            })
+            resolve()
+          }
         }
-      }, 1, idData)
+      })
     })
-    httpPromise.then(function(val){
-      httpApi.getHttp(getDetails,function(callback){
+    httpPromise.then(function (val) {
+      httpUtil.getHttp(detailData, function (callback) {
         console.log(callback)
         that.setData(callback.results[0])
         // that.setData({
         //   hasMark: !callback.results[0].hasMark
         // })
-        if(callback.results[0].parcelItems.length > 0){
+        if (callback.results[0].parcelItems.length > 0) {
           that.setData({
             productShow: true,
             productArr: callback.results[0].parcelItems
           })
         }
-        else{
+        else {
           that.setData({
             productShow: false
           })
         }
-      },1,idData)
+      })
     })
   },
-  toEvaluate: function(){
+  toEvaluate: function () {
     wx.navigateTo({
       url: '../evaluate/evaluate?idData=' + JSON.stringify(idData)
     })

@@ -6,7 +6,7 @@
     </view>
     <view class='header-txt'>药跟踪</view>
     <view class='header-input'>
-      <input placeholder='请输入你要搜索的订单号' placeholder-class='holder-txt' bindfocus='inputFocus' confirm-type='搜索'></input>
+      <input placeholder='请输入你要搜索的订单号' placeholder-class='holder-txt' bindfocus='getOrder' confirm-type='搜索' id='input'></input>
     </view>
   </view>
   <view class='app-content'>
@@ -19,7 +19,7 @@
         <image src='/images/org_icon.png' class='small'></image>
         <text>切换机构</text>
       </view>
-      <view class='content-item'>
+      <view class='content-item' bindtap='getOrder' id='order'>
         <image src='/images/order_icon.png'></image>
         <text>我的订单</text>
       </view>

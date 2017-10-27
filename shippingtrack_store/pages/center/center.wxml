@@ -6,6 +6,18 @@
 
 <button bindtap='powerDrawer' data-status='open'>弹窗测试</button>
 
+
+  <view wx:for='{{testArr}}'>
+    <view>{{item.title}} 布尔值为：{{item.isTrue}}</view>
+    <view wx:if='{{item.mArr}}'>
+      <view wx:for='{{item.mArr}}' wx:for-item='mItm'>
+        {{mItm}}
+      </view>
+    </view>
+    <view wx:else>False</view>
+  </view>
+
+
 <view class='drawer_bg' data-status='close' wx:if='{{showModalStatus}}' bindtap='powerDrawer'></view>
 
 <view animation='{{animationData}}' class='drawer_box' wx:if='{{showModalStatus}}'>

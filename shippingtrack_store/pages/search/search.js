@@ -1,45 +1,73 @@
 var httpUtil = require('../../utils/httpUtil.js')
 var inputContent = ''
-var _msgData = getApp().globalData
+var _msgData
 var itemIdx = 0
+var stateArr = ['已揽收', '配送中', '已收货', '已延迟']
 
 Page({
   data: {
     btnTxt: '搜索',
-    showBtn: true
+    showBtn: true,
+    scorllHeight: 0,
+    orderArr: [],
+    canScorll: true
   },
   onLoad: function (options) {
-    _msgData = _msgData.msgData
+    console.log(options.type)
+    var that = this
+    _msgData = getApp().globalData.msgData
     this.setData({
       isFocus: true
     })
-    this.getListItems()
+    wx.getSystemInfo({
+      success: function(res) {
+        that.setData({
+          scorllHeight: res.windowHeight*2
+        })
+      }
+    })
+    if(options.type == 'order'){
+      that.getListItems(itemIdx)
+    }
   },
   inputEntry: function (e) {
     inputContent = e.detail.value
   },
   searchClick: function () {
     this.setData({
+      orderArr: [],
       showBtn: false
     })
-    this.getListItems(inputContent)
+    this.getListItems(0,inputContent)
   },
   inputFocus: function () {
     this.setData({
       showBtn: true
     })
   },
-  getListItems: function (e) {
+  getListItems: function (e,inputContent) {
     var that = this
-    var orderArr = []
 
     var orderData = {
       action: 'VSERPSellBill.getERPSellBillsForRelOrgId',
-      start: 1807,
+      start: e,
       limit: 5
     }
 
+    if(inputContent != undefined && inputContent != ''){
+      orderData.billId = inputContent
+      that.setData({
+        canScorll: false
+      })
+    }
+    else{
+      that.setData({
+        canScorll: true
+      })
+    }
+
     orderData = Object.assign(orderData, _msgData)
+
     var httpPromise = new Promise(function (resolve, reject) {
       httpUtil.getHttp(orderData, function (callback) {
         //console.log(callback)
@@ -48,9 +76,15 @@ Page({
             that.setData({
               hasOrder: true
             })
+            resolve(callback.results)
           }
-          resolve(callback.results)
+          else{
+            that.setData({
+              hasOrder: false
+            })
+          }
         }
+
       })
     })
     httpPromise.then(function (val) {
@@ -62,6 +96,13 @@ Page({
         //console.log(i)
         
         if (i == val.length) {
+          //console.log(val)
+          var _orderArr = that.data.orderArr
+          _orderArr.push.apply(_orderArr,val)
+          //console.log(_orderArr)
+          that.setData({
+            orderArr: _orderArr
+          })
           return
         }
 
@@ -70,20 +111,25 @@ Page({
           if (callback.success) {
             //console.log(callback)
             if(callback.results.length > 0){
-              val[i].hasPackage = true
               val[i].packageArr = callback.results
-            }
-            else{
-              val[i].hasPackage = false
+              for(let j=0; j<val[i].packageArr.length; j++){
+                val[i].packageArr[j].state = stateArr[val[i].packageArr[j].state]
+              }
             }
             getPackage(i + 1)
           }
         })
       })(0)
-      console.log(val)
-      that.setData({
-        orderArr: val
-      })
+    })
+  },
+  scrollEvent: function(){
+    itemIdx = itemIdx + 5
+    this.getListItems(itemIdx)
+  },
+  toDetail: function(e){
+    console.log(e.currentTarget.dataset)
+    wx.navigateTo({
+      url: '../packageDetail/packageDetail?code=' + e.currentTarget.dataset.code + '&pId=' + e.currentTarget.dataset.pid
     })
   }
 })

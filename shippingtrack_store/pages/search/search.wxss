@@ -1,6 +1,10 @@
 @import 'orderList.wxss';
 
 .search-content {
+  z-index: 1001;
+  position: fixed;
+  top: 0;
+  width: 94%;
   display: flex;
   padding: 20rpx 3%;
   justify-content: space-between;

@@ -6,7 +6,7 @@
     <button class="bg-color" bindtap='searchClick'>{{btnTxt}}</button>
   </view>
 
-  <view class='order_content' wx:if='{{hasOrder}}'>
+  <scroll-view class='order_content' wx:if='{{hasOrder}}' style='height:{{scorllHeight-66}}rpx' scroll-y='{{canScorll}}' bindscrolltolower='scrollEvent'>
     <view class='order_item' wx:for='{{orderArr}}'>
       <view class='order_title'>
         <view class='order_msg'>
@@ -16,35 +16,31 @@
         <text class='order_time'>{{item.billDate}}</text>
       </view>
 
-      <view class='package_list' wx:if='{{item.hasPackage}}'>
-        <view class='package_item' wx:for='{{item.packageArr}}' wx:for-item='packageItem'>
+      <view class='package_list' wx:if='{{item.packageArr}}'>
+
+        <view class='package_item' wx:for='{{item.packageArr}}' wx:for-item='packageItem' bindtap='toDetail' data-code='{{packageItem.parcelCode}}' data-pId='{{packageItem.bizCenterId}}'>
           <image src='/images/package.png'></image>
           <view class='package_msg'>
-            <view class='msg up'>
-              <view class='num'>
-                <text>包裹号</text>
-                <text>{{packageItem.bizBillCode}}</text>
-              </view>
-              <view class='state'>
-                <text>状态</text>
-                <text>{{packageItem.state}}</text>
-              </view>
+            <view class='num'>
+              <text>包裹号</text>
+              <text>{{packageItem.parcelCode}}</text>
             </view>
-            <view class='msg down'>
-              <view class='time'>
-                <text>创建时间</text>
-                <text>{{packageItem.createTime}}</text>
-              </view>
+            <view class='state'>
+              <text>状态</text>
+              <text>{{packageItem.state}}</text>
+            </view>
+            <view class='time'>
+              <text>创建时间</text>
+              <text>{{packageItem.createTime}}</text>
             </view>
           </view>
         </view>
+
       </view>
 
-      <view wx:else class='noPackage'>暂无相关包裹信息</view>
+      <view class='noPackage' wx:else>暂无相关包裹信息</view>
     </view>
-  </view>
+  </scroll-view>
 
-  <view wx:else>
-    暂无相关的订单信息
-  </view>
+  <view wx:else class='noOrder'>暂无相关的订单信息</view>
 </view>

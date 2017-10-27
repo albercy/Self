@@ -10,7 +10,19 @@ Page({
     pageArr: [1, 2, 3],
     orgArr: ['梅花园药店', '京溪药店', '体育路药店', '同和药店', '天河南药店', '番禺市桥药店', '广州爱心大药房', '中山三院便民药房'],
     radioSelect: 0,
-    showModalStatus: false
+    showModalStatus: false,
+    isShow: true,
+    testArr: [
+      {
+        title: '测试1',
+        mArr: ['111','222','333'],
+        isTrue: true
+      },
+      {
+        title: '测试2',
+        isTrue: false
+      }
+    ]
   },
   onLoad: function (options) {
     var that = this
