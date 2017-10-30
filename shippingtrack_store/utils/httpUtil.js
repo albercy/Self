@@ -4,12 +4,20 @@ var _header
 
 function loginHttp(options, callback) {
   wx.request({
-    url: 'https://www.yr600.com/fish/login',
+    url: 'http://login.yr600.com/userCenterLogin.jsp?act=login',
+    //url: 'https://www.yr600.com/fish/login',
     data: options,
     success: function (res) {
+      var _cookie = res.header['Set-Cookie']
+      console.log(_cookie)
+      var _strArr = _cookie.split('Path=/,')    
+      _strArr = _strArr[1].split(';')[0]
+
       if (res.data.success) {
         wx.setStorageSync('userName', options.userName)
-        _header = { 'Cookie': '_serviceId=' + res.data._serviceId }
+        //_header = { 'Cookie': '_serviceId=' + res.data._serviceId }
+        //_header = { 'Cookie': res.header['Set-Cookie'] }
+        _header = { 'Cookie': _strArr }
         saveData(function (dataBack) {
           //console.log(dataBack)
           if (dataBack) {

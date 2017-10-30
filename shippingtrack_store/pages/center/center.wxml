@@ -4,6 +4,8 @@
   <text wx:if='{{nextShow}}' bindtap='goPage' id='next'>{{next}}</text>
 </view>
 
+<view class=''>{{isA?'a':'b'}}</view>
+
 <button bindtap='powerDrawer' data-status='open'>弹窗测试</button>
 
 

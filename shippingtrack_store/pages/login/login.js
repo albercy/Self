@@ -42,16 +42,25 @@ Page({
       paramer.password = md5.md5(paramer.password)
       httpUtil.loginHttp(paramer, function (callback) {
         closeLoading()
-        if (callback.success) {
-          wx.redirectTo({
-            url: '../index/index',
-          })
+        if(callback != null){
+          if (callback.success) {
+            wx.redirectTo({
+              url: '../index/index',
+            })
+          }
+          else {
+            wx.showModal({
+              title: '提示',
+              content: '帐号或者密码错误，请重新输入',
+              showCancel: false
+            })
+          }
         }
-        else {
+        else{
           wx.showModal({
             title: '提示',
-            content: '帐号或者密码错误，请重新输入',
-            showCancel: false
+            content: '网络连接超时,请重新登录或稍后再试',
+            showCancel:false
           })
         }
       })

@@ -6,7 +6,7 @@
     <button class="bg-color" bindtap='searchClick'>{{btnTxt}}</button>
   </view>
 
-  <scroll-view class='order_content' wx:if='{{hasOrder}}' style='height:{{scorllHeight-66}}rpx' scroll-y='{{canScorll}}' bindscrolltolower='scrollEvent'>
+  <scroll-view class='order_content' wx:if='{{hasOrder}}' style="height:{{canScorll ? 'scorllHeight':'auto'}}" scroll-y='{{canScorll}}' bindscrolltolower='scrollEvent'>
     <view class='order_item' wx:for='{{orderArr}}'>
       <view class='order_title'>
         <view class='order_msg'>

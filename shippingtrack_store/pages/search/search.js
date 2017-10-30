@@ -1,8 +1,9 @@
 var httpUtil = require('../../utils/httpUtil.js')
 var inputContent = ''
 var _msgData
-var itemIdx = 0
-var stateArr = ['已揽收', '配送中', '已收货', '已延迟']
+var itemIdx
+var stateArr
+var scorllHeight
 
 Page({
   data: {
@@ -13,19 +14,23 @@ Page({
     canScorll: true
   },
   onLoad: function (options) {
-    console.log(options.type)
     var that = this
+    itemIdx = 0
+    stateArr = ['已揽收', '配送中', '已收货', '已延迟']
     _msgData = getApp().globalData.msgData
-    this.setData({
-      isFocus: true
-    })
+
     wx.getSystemInfo({
-      success: function(res) {
+      success: function (res) {
         that.setData({
-          scorllHeight: res.windowHeight*2
+          scorllHeight: (res.windowHeight * 2 - 66) + 'rpx'
         })
       }
     })
+
+    this.setData({
+      isFocus: true
+    })
+    
     if(options.type == 'order'){
       that.getListItems(itemIdx)
     }
